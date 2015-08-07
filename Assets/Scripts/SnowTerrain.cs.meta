@@ -1,0 +1,10 @@
+fileFormatVersion: 2
+guid: 86c53fac52c8a7d4cbd6e3d6ab8cf574
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - snowTexture: {fileID: 2800000, guid: 908a6a873e724b84b91044d4d2621e61, type: 3}
+  - snowNormalMap: {fileID: 2800000, guid: 13b5954906fd0f64181b7fecb20fed44, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 

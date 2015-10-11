@@ -1,21 +1,26 @@
 fileFormatVersion: 2
-guid: 5d7b4260e13fc284a9c5d63ac957f83a
-timeCreated: 1444559098
+guid: 7c0a133da749d244597812897a97545b
+timeCreated: 1444587571
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: RV
-    6400000: //RootNode
+    100000: Camera
+    100002: Cylinder
+    100004: Lamp
+    100006: //RootNode
+    400000: Camera
+    400002: Cylinder
+    400004: Lamp
+    400006: //RootNode
+    2300000: Cylinder
+    3300000: Cylinder
+    4300000: Cylinder
     9500000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
-    materialSearch: 0
+    materialSearch: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -33,7 +38,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -51,7 +56,7 @@ ModelImporter:
     splitTangentsAcrossUV: 1
     normalImportMode: 0
     tangentImportMode: 1
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     human: []
@@ -65,7 +70,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   additionalBone: 0
   userData: 
   assetBundleName: 

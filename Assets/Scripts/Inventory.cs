@@ -109,8 +109,6 @@ public class Inventory : MonoBehaviour {
 				int dropid = inventory[i];
 
 				removeItemSlot(i);
-				
-				Debug.Log("Drop "+inventory[i]);
 
 				if(itemsIds[dropid] != null) {
 					Instantiate(itemsIds[dropid], transform.position, transform.rotation);

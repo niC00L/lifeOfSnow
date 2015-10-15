@@ -88,4 +88,9 @@ public class FollowSnowball : MonoBehaviour {
 
 		}
 	}
+
+    public void setFirstPerson(bool firstPerson)
+    {
+        this.firstPerson = firstPerson;
+    }
 }

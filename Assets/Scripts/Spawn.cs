@@ -1,29 +1,34 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
 
-public class Spawn : MonoBehaviour {
+public class Spawn : MonoBehaviour
+{
 
-	public GameObject snowball;
+    public GameObject snowball;
+    public GameObject latestSnowball;
+    
+    void Start()
+    {
+        spawnSnowball();
+    }
+    
+    public void trySpawnSnowball()
+    {
+        //if (latestSnowball.GetComponent<SnowballController>().isConnected())
+        //{
+            spawnSnowball();
+        //}
+    }
 
-	public GameObject latestSnowball;
+    public void spawnSnowball()
+    {
 
-	void Start () {
-		spawnSnowball();
-	}
+        latestSnowball = (GameObject)Instantiate(this.snowball);
+        latestSnowball.transform.position = this.transform.position;
 
-	public void trySpawnSnowball () {
-		if(latestSnowball.GetComponent<SnowballController>().isConnected()) {
-			spawnSnowball();
-		}
-	}
-
-	public void spawnSnowball() {
-
-		latestSnowball = (GameObject) Instantiate(this.snowball);
-		latestSnowball.transform.position = this.transform.position;
-
-		foreach(FollowSnowball followSnowball in GameObject.FindObjectsOfType<FollowSnowball>() ) {
-			followSnowball.target = latestSnowball.transform;
-		}
-	}
+        foreach (FollowSnowball followSnowball in GameObject.FindObjectsOfType<FollowSnowball>())
+        {
+            followSnowball.target = latestSnowball.transform;
+        }
+    }
 }

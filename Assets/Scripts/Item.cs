@@ -1,36 +1,54 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Item : MonoBehaviour {
+public class Item : MonoBehaviour
+{
 
-	public int itemID = 0;
-	
-	private Spawn spawn;
+    public int itemID = 0;
+    public float pickupDistance = 5.0f;
 
-	void Start () {
+    private Spawn spawn;
 
-		spawn = GameObject.Find ("Spawn").GetComponent<Spawn> ();
+    void Start()
+    {
 
-	}
-	
-	void OnMouseDown() {
+        spawn = GameObject.Find("Spawn").GetComponent<Spawn>();
 
-		if(itemID <= 0) {
-			return;
-		}
+    }
 
-		Debug.Log ("Pick item");
+    void OnMouseDown()
+    {
 
-		Inventory inv = spawn.latestSnowball.GetComponent<Inventory> ();
+        if (itemID <= 0)
+        {
+            return;
+        }
 
-		if(inv.canAddItem(itemID)) {
+        Debug.Log("Pick item");
 
-			inv.addItem(itemID);
+        Vector3 snowballPosition = spawn.latestSnowball.transform.position;
 
-			Destroy(this.gameObject);
+        if ((snowballPosition - transform.position).magnitude < pickupDistance)
+        {
 
-		} else {
+            Inventory inv = spawn.latestSnowball.GetComponent<Inventory>();
 
-		}
-	}
+            if (inv.canAddItem(itemID))
+            {
+
+                inv.addItem(itemID);
+
+                Destroy(this.gameObject);
+
+            }
+            else
+            {
+                //TODO
+            }
+        }
+        else
+        {
+            //TODO
+        }
+    }
 }

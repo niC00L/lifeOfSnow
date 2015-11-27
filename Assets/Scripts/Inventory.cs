@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class Inventory : MonoBehaviour {
 
     public GameObject[] itemsIds;
+    public GameObject slotObject;
 
     private Camera inventoryCamera;
     private Transform inventoryContent;
@@ -23,13 +24,23 @@ public class Inventory : MonoBehaviour {
 
 		if(Input.GetKeyDown(KeyCode.I)) {
 			if(inventoryCamera.enabled) {
-                inventoryCamera.enabled = false;
+                close();
 			} else {
-                inventoryCamera.enabled = true;
+                open();
 			}
 		}
 
 	}
+
+    public void close()
+    {
+        inventoryCamera.enabled = false;
+    }
+
+    public void open()
+    {
+        inventoryCamera.enabled = true;
+    }
 
     public void updateInventory()
     {
@@ -38,9 +49,17 @@ public class Inventory : MonoBehaviour {
         foreach (Transform child in inventoryContent) children.Add(child.gameObject);
         children.ForEach(child => Destroy(child));
 
-        //put new items
-        if (spawn.latestSnowball) {
+        
+        if (spawn.latestSnowball)
+        {
             activeInventory = spawn.latestSnowball.GetComponent<SnowballInventory>();
+            //add slots
+            for (int i = 0; i < activeInventory.getInventorySize(); i++)
+            {
+                updateSlot(i);
+            }
+            
+            //put new items
             for (int i = 0; i < activeInventory.getInventorySize(); i++)
             {
                 updateItem(i, activeInventory.getItem(i));
@@ -48,19 +67,30 @@ public class Inventory : MonoBehaviour {
         }
     }
 
-    public void updateItem(int slot, int itemId)
+    private void updateItem(int slot, int itemId)
     {
         if(itemId > 0) {
-            Vector3 position = getPositionForSlot(slot);
+            GameObject slotObject = GameObject.Find("InventorySlot" + slot);
             GameObject item = Instantiate(itemsIds[itemId]);
-            item.transform.parent = inventoryContent;
-            item.transform.position = position;
+            item.transform.parent = slotObject.transform;
+            item.transform.position = slotObject.transform.position + new Vector3(0, 0, -4);
             item.layer = 8;
         }
     }
 
-    public Vector3 getPositionForSlot(int slot)
+    private void updateSlot(int slot)
     {
-        return new Vector3(slot * 0.5f, 0, 5);
+        Vector3 pos = getPositionForSlot(slot);
+        GameObject newSlot = Instantiate(slotObject);
+        newSlot.transform.parent = transform;
+        newSlot.transform.position = pos;
+        newSlot.name = "InventorySlot" + slot;
+    }
+
+    protected Vector3 getPositionForSlot(int slot)
+    {
+        int row = slot / 3;
+        int col = slot % 3;
+        return new Vector3(0.505f + col * 1.1f, -0.505f + row * -1.1f, 8);
     }
 }

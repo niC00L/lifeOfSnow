@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Item : MonoBehaviour
 {
@@ -11,9 +10,7 @@ public class Item : MonoBehaviour
 
     void Start()
     {
-
         spawn = GameObject.Find("Spawn").GetComponent<Spawn>();
-
     }
 
     void OnMouseDown()
@@ -31,7 +28,7 @@ public class Item : MonoBehaviour
         if ((snowballPosition - transform.position).magnitude < pickupDistance)
         {
 
-            Inventory inv = spawn.latestSnowball.GetComponent<Inventory>();
+            SnowballInventory inv = spawn.latestSnowball.GetComponent<SnowballInventory>();
 
             if (inv.canAddItem(itemID))
             {

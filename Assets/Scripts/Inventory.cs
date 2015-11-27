@@ -1,127 +1,67 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour {
 
-	public int invSize = 9;
+    public GameObject[] itemsIds;
 
-	public GameObject[] itemsIds;
-	public int[] inventory;
+    private Camera inventoryCamera;
+    private Transform inventoryContent;
+    private Spawn spawn;
+    private SnowballInventory activeInventory;
 
-	private bool showInv;
-	private Rect guiRect;
-	private GUIContent invGuiContent;
-	private int invGuiWidth = 200;
-	private int invGuiHeight = 200;
-
-	void Start() {
-		inventory = new int[invSize];
-
-		float cx = Camera.main.pixelWidth / 2;
-		float cy = Camera.main.pixelHeight / 2;
-
-		guiRect = new Rect(Mathf.Round(cx - invGuiWidth / 2), Mathf.Round(cy - invGuiHeight / 2), invGuiWidth, invGuiHeight);
-	
-	
-		invGuiContent = new GUIContent ("Inventory");
-	}
-
-	public bool canAddItem(int itemID) {
-
-		for(int i=0; i<invSize; i++) {
-			if(inventory[i] == 0) {
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	public bool addItem(int itemID) {
-
-		for(int i=0; i<invSize; i++) {
-			if(inventory[i] == 0) {
-				inventory[i] = itemID;
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	public bool hasItem(int itemID) {
-		
-		for(int i=0; i<invSize; i++) {
-			if(inventory[i] == itemID) {
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	public bool removeItemType(int itemID) {
-		
-		for(int i=0; i<invSize; i++) {
-			if(inventory[i] == itemID) {
-				inventory[i] = 0;
-				return true;
-			}
-		}
-		
-		return false;
-	}
-
-	public void removeItemSlot(int slot) {
-		
-		inventory[slot] = 0;
-	}
-
-	//GUI
-
-	void Update () {
+    void Start ()
+    {
+        inventoryCamera = GameObject.Find("InventoryCamera").GetComponent<Camera>();
+        spawn = FindObjectOfType<Spawn>();
+        inventoryContent = GameObject.Find("InventoryContent").transform;
+    }
+    
+	void Update ()
+    {
 
 		if(Input.GetKeyDown(KeyCode.I)) {
-			if(showInv) {
-				showInv = false;
+			if(inventoryCamera.enabled) {
+                inventoryCamera.enabled = false;
 			} else {
-				showInv = true;
+                inventoryCamera.enabled = true;
 			}
 		}
 
 	}
 
-	void OnGUI () {
+    public void updateInventory()
+    {
+        //clear
+        var children = new List<GameObject>();
+        foreach (Transform child in inventoryContent) children.Add(child.gameObject);
+        children.ForEach(child => Destroy(child));
 
-		if(showInv) {
-			
-			GUI.Window(1, guiRect, drawInvGUI, invGuiContent);
+        //put new items
+        if (spawn.latestSnowball) {
+            activeInventory = spawn.latestSnowball.GetComponent<SnowballInventory>();
+            for (int i = 0; i < activeInventory.getInventorySize(); i++)
+            {
+                updateItem(i, activeInventory.getItem(i));
+            }
+        }
+    }
 
-		}
+    public void updateItem(int slot, int itemId)
+    {
+        if(itemId > 0) {
+            Vector3 position = getPositionForSlot(slot);
+            GameObject item = Instantiate(itemsIds[itemId]);
+            item.transform.parent = inventoryContent;
+            item.transform.position = position;
+            item.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+            item.layer = 8;
+        }
+    }
 
-	}
-
-	protected void drawInvGUI(int id) {
-
-		for(int i=0; i<invSize; i++) {
-			if(GUI.Button(getGuiSlotLocation(i), "" + inventory[i])) {
-
-				int dropid = inventory[i];
-
-				removeItemSlot(i);
-
-				if(itemsIds[dropid] != null) {
-					Instantiate(itemsIds[dropid], transform.position, transform.rotation);
-				}
-			}
-		}
-	}
-
-	private Rect getGuiSlotLocation(int slot) {
-
-		int row = slot / 3;
-		int col = slot - (row * 3);
-
-		return new Rect (10 + col * 60, 10 + row * 60, 60, 60);
-	}
+    public Vector3 getPositionForSlot(int slot)
+    {
+        return new Vector3(slot * 0.5f, 0, 5);
+    }
 }

@@ -55,7 +55,6 @@ public class Inventory : MonoBehaviour {
             GameObject item = Instantiate(itemsIds[itemId]);
             item.transform.parent = inventoryContent;
             item.transform.position = position;
-            item.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
             item.layer = 8;
         }
     }

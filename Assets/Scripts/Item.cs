@@ -21,8 +21,6 @@ public class Item : MonoBehaviour
             return;
         }
 
-        Debug.Log("Pick item");
-
         Vector3 snowballPosition = spawn.latestSnowball.transform.position;
 
         if ((snowballPosition - transform.position).magnitude < pickupDistance)

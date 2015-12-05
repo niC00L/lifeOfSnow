@@ -8,7 +8,7 @@ public class SnowballInventory : MonoBehaviour {
 
     private Inventory inventory;
 
-    void Start () {
+    void Awake() {
         items = new int[invSize];
 
         inventory = GameObject.FindObjectOfType<Inventory>();
@@ -37,7 +37,7 @@ public class SnowballInventory : MonoBehaviour {
             {
                 items[i] = itemID;
 
-                inventory.updateInventory();
+                updateInv();
 
                 return true;
             }
@@ -69,7 +69,7 @@ public class SnowballInventory : MonoBehaviour {
             {
                 items[i] = 0;
 
-                inventory.updateInventory();
+                updateInv();
 
                 return true;
             }
@@ -81,7 +81,7 @@ public class SnowballInventory : MonoBehaviour {
     public void removeItemSlot(int slot)
     {
         items[slot] = 0;
-        inventory.updateInventory();
+        updateInv();
     }
 
     public int getInventorySize()
@@ -95,5 +95,13 @@ public class SnowballInventory : MonoBehaviour {
             return items[slotId];
         }
         return 0;
+    }
+
+    private void updateInv()
+    {
+        if (inventory.getActiveInventory() == this)
+        {
+            inventory.updateInventory(this);
+        }
     }
 }

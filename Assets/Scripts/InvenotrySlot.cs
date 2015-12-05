@@ -13,6 +13,7 @@ public class InvenotrySlot : MonoBehaviour {
 	
 	public void OnMouseDown()
     {
+        Debug.Log("CLICK SLOT");
         Transform item = transform.GetChild(0);
         if (item != null) { 
             inventory.close();

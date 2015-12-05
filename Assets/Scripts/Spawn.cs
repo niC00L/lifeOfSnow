@@ -7,18 +7,24 @@ public class Spawn : MonoBehaviour
     public GameObject snowball;
     public GameObject latestSnowball;
     public float snowballSpawnSize = 0.0f;
+    private Inventory inventory;
     
+    void Awake()
+    {
+        inventory = FindObjectOfType<Inventory>();
+    }
+
     void Start()
     {
         spawnSnowball();
     }
-    
+
     public void trySpawnSnowball()
     {
-        //if (latestSnowball.GetComponent<SnowballController>().isConnected())
-        //{
+        if (latestSnowball.GetComponent<SnowballController>().isConnected())
+        {
             spawnSnowball();
-        //}
+        }
     }
 
     public void spawnSnowball()
@@ -37,5 +43,7 @@ public class Spawn : MonoBehaviour
         {
             followSnowball.target = latestSnowball.transform;
         }
+
+        inventory.updateInventory(latestSnowball.GetComponent<SnowballInventory>());
     }
 }

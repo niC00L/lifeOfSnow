@@ -11,7 +11,7 @@ public class SnowTerrainIncrease : MonoBehaviour {
 	private TerrainData snowTerrainData;
 	private int rateTimer = 0;
 
-	void Start () {
+	void Awake() {
 
 		snowTerrain = transform.GetChild (0).GetComponent<Terrain> ();
 		snowTerrainData = snowTerrain.terrainData;

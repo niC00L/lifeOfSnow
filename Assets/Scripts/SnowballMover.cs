@@ -107,14 +107,12 @@ public class SnowballMover : MonoBehaviour {
 	}
 
 	public void _increaseBallSize() {
-        Debug.Log("++");
 		SnowballController snowball = getSnowball ();
 		snowball.size *= 2;
 		snowball.updateSize();
 	}
 	
 	public void _decreaseBallSize() {
-        Debug.Log("--");
         SnowballController snowball = getSnowball ();
 		snowball.size /= 2;
 		snowball.updateSize();

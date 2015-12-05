@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class TerrainModificationPosition {
 
@@ -35,9 +34,7 @@ public class TerrainModificationPosition {
 
 		if(x+w >= terrainData.heightmapWidth) {
 			int d = (x+w)-terrainData.heightmapWidth;
-
-			Debug.Log(d);
-
+            
 			w -= d;
 		}
 

@@ -112,14 +112,13 @@ public class SnowTerrain : MonoBehaviour {
 					float relativeDistance = realDistance/size;
 
 					/*
-
+                    */
 					float realTerrainHeight = heights[i, j] * snowTerrainData.size.y + snowTerrain.transform.position.y;
 
 					float ballHeightAt = position.y - ( size * Mathf.Sqrt(1-(relativeDistance*relativeDistance)) );
 
-					float heightDiff = realTerrainHeight - ballHeightAt + snowTerrainDecreasment;
-
-
+					//float heightDiff = realTerrainHeight - ballHeightAt + snowTerrainDecreasment;
+                    
 					Vector3 debugStart = position;
 					debugStart.y = ballHeightAt;
 					Vector3 debugEnd = position;
@@ -130,8 +129,8 @@ public class SnowTerrain : MonoBehaviour {
 					debugEnd.x += fx;
 					debugEnd.z += fz;
 
-					Debug.DrawLine(debugStart, debugEnd);
-
+                    Debug.DrawLine(debugStart, debugEnd, Color.red, 0.1f, false);
+                    /*
 
 					if(heightDiff > 0) {
 

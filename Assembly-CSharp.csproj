@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\SnowTerrain.cs" />
      <Compile Include="Assets\Scripts\SnowTerrainIncrease.cs" />
      <Compile Include="Assets\Scripts\SnowballController.cs" />
+     <Compile Include="Assets\Scripts\SnowballInventory.cs" />
      <Compile Include="Assets\Scripts\SnowballMover.cs" />
      <Compile Include="Assets\Scripts\Spawn.cs" />
      <Compile Include="Assets\Scripts\inner\TerrainModificationPosition.cs" />

@@ -21,6 +21,11 @@ public class PutOnMe : MonoBehaviour {
             Vector3 toCamera = (mainCamera.position - snowballPos).normalized;
             puttingObject.transform.position = snowballPos + toCamera * puttingOn.size;
             puttingObject.transform.LookAt(snowballPos);
+
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                stopPutOnMe();
+            }
         }
 	}
 
@@ -28,5 +33,20 @@ public class PutOnMe : MonoBehaviour {
     {
         puttingOn = spawn.latestSnowball.GetComponent<SnowballController>();
         puttingObject = item;
+    }
+
+    public void putOnMe(GameObject asset)
+    {
+        GameObject item = Instantiate(asset);
+        item.layer = 0;
+        item.transform.parent = spawn.latestSnowball.transform;
+
+        puttingOn = spawn.latestSnowball.GetComponent<SnowballController>();
+        puttingObject = item.transform;
+    }
+
+    public void stopPutOnMe()
+    {
+        puttingObject = null;
     }
 }

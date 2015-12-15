@@ -5,6 +5,7 @@ public class InvenotrySlot : MonoBehaviour {
 
     private Inventory inventory;
     private PutOnMe putOnMe;
+    public int slot;
 
 	void Start () {
         inventory = GameObject.FindObjectOfType<Inventory>();
@@ -13,12 +14,11 @@ public class InvenotrySlot : MonoBehaviour {
 	
 	public void OnMouseDown()
     {
-        Debug.Log("CLICK SLOT");
-        Transform item = transform.GetChild(0);
-        if (item != null) { 
+        GameObject item = inventory.getRealItem(slot);
+        if (item != null) {
             inventory.close();
             putOnMe.putOnMe(item);
-            item.gameObject.layer = 0;
+            inventory.removeItemSlot(slot);
         }
     }
 }

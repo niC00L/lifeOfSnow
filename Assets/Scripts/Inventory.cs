@@ -58,15 +58,10 @@ public class Inventory : MonoBehaviour {
         {
             calculateInvenotryRowsCols();
 
-            //add slots
-            for (int i = 0; i < activeInventory.getInventorySize(); i++)
-            {
-                updateSlot(i);
-            }
-            
             //put new items
             for (int i = 0; i < activeInventory.getInventorySize(); i++)
             {
+                updateSlot(i);
                 updateItem(i, activeInventory.getItem(i));
             }
 
@@ -78,11 +73,12 @@ public class Inventory : MonoBehaviour {
     private void updateItem(int slot, int itemId)
     {
         if(itemId > 0) {
+            //item preview
             Vector3 pos = getPositionForSlot(slot);
-            GameObject item = Instantiate(itemsIds[itemId]);
-            item.transform.parent = inventoryContent;
-            item.transform.position = pos + new Vector3(0, 0, -4);
-            item.layer = 8;
+            GameObject previewItem = Instantiate(itemsIds[itemId]);
+            previewItem.transform.parent = inventoryContent;
+            previewItem.transform.position = pos + new Vector3(0, 0, -4);
+            previewItem.layer = 8;
         }
     }
 
@@ -93,6 +89,7 @@ public class Inventory : MonoBehaviour {
         newSlot.transform.parent = inventoryContent;
         newSlot.transform.position = pos;
         newSlot.name = "InventorySlot" + slot;
+        newSlot.GetComponent<InvenotrySlot>().slot = slot;
     }
 
     protected Vector3 getPositionForSlot(int slot)
@@ -120,5 +117,20 @@ public class Inventory : MonoBehaviour {
     public SnowballInventory getActiveInventory()
     {
         return activeInventory;
+    }
+
+    public int getItem(int slot)
+    {
+        return activeInventory.getItem(slot);
+    }
+
+    public GameObject getRealItem(int slot)
+    {
+        return itemsIds[activeInventory.getItem(slot)];
+    }
+
+    public void removeItemSlot(int slot)
+    {
+        activeInventory.removeItemSlot(slot);
     }
 }

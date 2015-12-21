@@ -20,12 +20,9 @@ public class SnowballMover : MonoBehaviour {
 	private bool manualInputConnect;
 	private bool manualInputRespawn;
 
-    private Joystick joystick;
-
-    void Start () {
+	void Start () {
 		spawn = this.GetComponent<Spawn>();
-        joystick = FindObjectOfType<Joystick>();
-    }
+	}
 
 	void Update () {
 		
@@ -44,8 +41,8 @@ public class SnowballMover : MonoBehaviour {
 		forward = forward.normalized;
 		
 		Vector3 right = new Vector3(forward.z, 0, -forward.x);
-
-        float v = getVerticalInput();
+		
+		float v = getVerticalInput();
 		float h = getHorizontalInput();
 		
 		Vector3 targetDirection = h * right + v * forward;
@@ -83,27 +80,21 @@ public class SnowballMover : MonoBehaviour {
 	}
 
 	private float getVerticalInput() {
-        if (manualInputTop)
-            return 1;
+		if(manualInputTop)
+			return 1;
 		if(manualInputBottom)
-            return -1;
+			return -1;
 		
-        if(Input.GetAxisRaw("Vertical") != 0) {
-            return Input.GetAxisRaw("Vertical");
-        }
-		return joystick.JoystickInput.y;
+		return Input.GetAxisRaw ("Vertical");
 	}
 	
 	private float getHorizontalInput() {
-        if (manualInputRight)
+		if(manualInputRight)
 			return 1;
 		if(manualInputLeft)
 			return -1;
-
-        if (Input.GetAxisRaw("Horizontal") != 0) {
-            return Input.GetAxisRaw("Horizontal");
-        }
-        return joystick.JoystickInput.x;
+		
+		return Input.GetAxisRaw ("Horizontal");
 	}
 
 	private bool IsGrounded () {

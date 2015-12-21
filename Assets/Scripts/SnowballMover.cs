@@ -1,148 +1,189 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SnowballMover : MonoBehaviour {
+public class SnowballMover : MonoBehaviour
+{
 
-	private Spawn spawn;
+    private Spawn spawn;
+    private Inventory inventory;
 
-	public float moveSpeed = 2.0f;
-	public float moveSpeedAir = 1.0f;
-	public float jumpSpeed = 2.0f;
-	public float jumpRepeatTime = 0.4f;
+    private Camera mainCamera;
+    private Vector3 screenCenter;
+    
+    public float moveSpeed = 2.0f;
+    public float moveSpeedAir = 1.0f;
+    public float jumpSpeed = 2.0f;
+    public float jumpRepeatTime = 0.4f;
+    public float cameraMoveSpeed = 200.0f;
 
-	private float lastJumpTime = -1.0f;
-	
-	private bool manualInputTop;
-	private bool manualInputRight;
-	private bool manualInputBottom;
-	private bool manualInputLeft;
-	private bool manualInputJump;
-	private bool manualInputConnect;
-	private bool manualInputRespawn;
+    private float lastJumpTime = -1.0f;
+    
+    private bool manualInputJump;
+    private bool manualInputConnect;
+    private bool manualInputRespawn;
+    private bool manualInputInvenotry;
 
-	void Start () {
-		spawn = this.GetComponent<Spawn>();
-	}
+    private Joystick controllerMove;
+    private TouchPad controllerCamera;
+    private Vector2 lastCameraControllerInput;
 
-	void Update () {
-		
-		Transform cameraTransform = Camera.main.transform;
-		
-		Vector3 forward;
+    void Start()
+    {
+        spawn = this.GetComponent<Spawn>();
+        inventory = FindObjectOfType<Inventory>();
+        controllerMove = FindObjectOfType<Joystick>();
+        controllerCamera = FindObjectOfType<TouchPad>();
+        mainCamera = Camera.main;
+        screenCenter = new Vector3(Screen.width / 2, Screen.height / 2, mainCamera.nearClipPlane);
+    }
 
-		SnowballController snowball = getSnowball ();
-		
-		if(snowball.size > 0)
-			forward = cameraTransform.TransformDirection(Vector3.forward); //snowball
-		else
-			forward = cameraTransform.TransformDirection(Vector3.up); //snowflake
-		
-		forward.y = 0;
-		forward = forward.normalized;
-		
-		Vector3 right = new Vector3(forward.z, 0, -forward.x);
-		
-		float v = getVerticalInput();
-		float h = getHorizontalInput();
-		
-		Vector3 targetDirection = h * right + v * forward;
-		
-		
-		bool grounded = IsGrounded();
-		
-		if(grounded) {
-			targetDirection = targetDirection * moveSpeed;
-		} else {
-			targetDirection = targetDirection * moveSpeedAir;
-		}
-		
-		targetDirection *= Time.deltaTime;
-		
-		snowball.GetComponent<Rigidbody>().AddForce(targetDirection);
-		
-		if(grounded) {
-			if(manualInputJump || Input.GetButton("Jump")) {
-				if (lastJumpTime + jumpRepeatTime < Time.time) {
-					lastJumpTime = Time.time;
-					snowball.GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpSpeed, 0));
-				}
-			}
-		}
+    void Update()
+    {
+        
+        Vector3 forward;
+
+        SnowballController snowball = getSnowball();
+
+        if (snowball.size > 0)
+            forward = mainCamera.transform.TransformDirection(Vector3.forward); //snowball
+        else
+            forward = mainCamera.transform.TransformDirection(Vector3.up); //snowflake
+
+        forward.y = 0;
+        forward = forward.normalized;
+
+        Vector3 right = new Vector3(forward.z, 0, -forward.x);
+
+        float v = getVerticalInput();
+        float h = getHorizontalInput();
+
+        Vector3 targetDirection = h * right + v * forward;
 
 
-		if(Input.GetKey(KeyCode.C) || manualInputConnect) {
-			snowball.requestConnectChange();
-		}
+        bool grounded = IsGrounded();
 
-		if(Input.GetKey(KeyCode.R) || manualInputRespawn) {
-			spawn.trySpawnSnowball();
-		}
-	}
+        if (grounded)
+        {
+            targetDirection = targetDirection * moveSpeed;
+        }
+        else
+        {
+            targetDirection = targetDirection * moveSpeedAir;
+        }
 
-	private float getVerticalInput() {
-		if(manualInputTop)
-			return 1;
-		if(manualInputBottom)
-			return -1;
-		
-		return Input.GetAxisRaw ("Vertical");
-	}
-	
-	private float getHorizontalInput() {
-		if(manualInputRight)
-			return 1;
-		if(manualInputLeft)
-			return -1;
-		
-		return Input.GetAxisRaw ("Horizontal");
-	}
+        targetDirection *= Time.deltaTime;
 
-	private bool IsGrounded () {
-		SnowballController snowball = getSnowball();
-		return Physics.Raycast(snowball.transform.position, new Vector3(0, -1, 0), snowball.jumpAllowDistance + snowball.size);
-	}
+        snowball.GetComponent<Rigidbody>().AddForce(targetDirection);
 
-	private SnowballController getSnowball() {
-		return spawn.latestSnowball.GetComponent<SnowballController>();
-	}
+        if (grounded)
+        {
+            if (manualInputJump || Input.GetButton("Jump"))
+            {
+                if (lastJumpTime + jumpRepeatTime < Time.time)
+                {
+                    lastJumpTime = Time.time;
+                    snowball.GetComponent<Rigidbody>().AddForce(new Vector3(0, jumpSpeed, 0));
+                }
+            }
+        }
 
-	public void _increaseBallSize() {
-		SnowballController snowball = getSnowball ();
-		snowball.size *= 2;
-		snowball.updateSize();
-	}
-	
-	public void _decreaseBallSize() {
-        SnowballController snowball = getSnowball ();
-		snowball.size /= 2;
-		snowball.updateSize();
-	}
-	
-	public void _setManualInputTop(bool input) {
-		this.manualInputTop = input;
-	}
-	
-	public void _setManualInputRight(bool input) {
-		this.manualInputRight = input;
-	}
-	
-	public void _setManualInputBottom(bool input) {
-		this.manualInputBottom = input;
-	}
-	
-	public void _setManualInputLeft(bool input) {
-		this.manualInputLeft = input;
-	}
-	
-	public void _setManualInputJump(bool input) {
-		this.manualInputJump = input;
-	}
+        rotateCamera();
 
-	public void _setManualInputConnect(bool input) {
-		this.manualInputConnect = input;
-	}
+        if (Input.GetKey(KeyCode.C) || manualInputConnect)
+        {
+            snowball.requestConnectChange();
+        }
 
-	public void _setManualInputRespawn(bool input) {
-		this.manualInputRespawn = input;
-	}
+        if (Input.GetKey(KeyCode.R) || manualInputRespawn)
+        {
+            spawn.trySpawnSnowball();
+        }
+
+        if(Input.GetKey(KeyCode.I) || manualInputInvenotry)
+        {
+            inventory.toggle();
+        }
+    }
+
+    private float getVerticalInput()
+    {
+        if (Input.GetAxisRaw("Vertical") != 0)
+        {
+            return Input.GetAxisRaw("Vertical");
+        }
+        return controllerMove.JoystickInput.y;
+    }
+
+    private float getHorizontalInput()
+    {
+        if (Input.GetAxisRaw("Horizontal") != 0)
+        {
+            return Input.GetAxisRaw("Horizontal");
+        }
+        return controllerMove.JoystickInput.x;
+    }
+
+    private bool IsGrounded()
+    {
+        SnowballController snowball = getSnowball();
+        return Physics.Raycast(snowball.transform.position, new Vector3(0, -1, 0), snowball.jumpAllowDistance + snowball.size);
+    }
+
+    private SnowballController getSnowball()
+    {
+        return spawn.latestSnowball.GetComponent<SnowballController>();
+    }
+
+    private void rotateCamera()
+    {
+        if(controllerCamera.TouchPadInput.magnitude > 0) {
+            
+            float dx = lastCameraControllerInput.x - controllerCamera.TouchPadInput.x;
+            float dy = lastCameraControllerInput.y - controllerCamera.TouchPadInput.y;
+            
+            dx *= 100; dy *= 100;
+
+            Vector3 centerPoint = mainCamera.ScreenToWorldPoint(screenCenter);
+            Vector3 movePoint = mainCamera.ScreenToWorldPoint(screenCenter + new Vector3(dx, dy, 0));
+            Vector3 moveVector = movePoint - centerPoint;
+
+            mainCamera.transform.position += moveVector * cameraMoveSpeed;
+        }
+
+        lastCameraControllerInput = controllerCamera.TouchPadInput;
+    }
+
+    public void _increaseBallSize()
+    {
+        SnowballController snowball = getSnowball();
+        snowball.size *= 2;
+        snowball.updateSize();
+    }
+
+    public void _decreaseBallSize()
+    {
+        SnowballController snowball = getSnowball();
+        snowball.size /= 2;
+        snowball.updateSize();
+    }
+
+    public void _setManualInputJump(bool input)
+    {
+        this.manualInputJump = input;
+    }
+
+    public void _setManualInputConnect(bool input)
+    {
+        this.manualInputConnect = input;
+    }
+
+    public void _setManualInputRespawn(bool input)
+    {
+        this.manualInputRespawn = input;
+    }
+
+    public void _setManualInputInvenotry(bool input)
+    {
+        this.manualInputInvenotry = input;
+    }
 }

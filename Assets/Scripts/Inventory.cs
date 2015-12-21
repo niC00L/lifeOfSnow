@@ -20,6 +20,7 @@ public class Inventory : MonoBehaviour {
         inventoryContent = GameObject.Find("InventoryContent").transform;
     }
     
+    /* Already in snowball controller
 	void Update ()
     {
 
@@ -32,6 +33,7 @@ public class Inventory : MonoBehaviour {
 		}
 
 	}
+    */
 
     public void close()
     {
@@ -41,6 +43,17 @@ public class Inventory : MonoBehaviour {
     public void open()
     {
         inventoryCamera.enabled = true;
+    }
+
+    public void toggle()
+    {
+        if (inventoryCamera.enabled)
+        {
+            close();
+        } else
+        {
+            open();
+        }
     }
 
     public void updateInventory(SnowballInventory snowballInventory)

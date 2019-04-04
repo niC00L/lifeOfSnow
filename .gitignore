@@ -1,0 +1,8 @@
+# Unity3D .gitignore file.
+.DS_Store
+Library
+Temp
+obj
+*.csproj
+*.pidb
+*.sln

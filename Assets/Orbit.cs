@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rotate : MonoBehaviour
+public class Orbit : MonoBehaviour
 {
     public Transform target;
     public float distance = 5.0f;

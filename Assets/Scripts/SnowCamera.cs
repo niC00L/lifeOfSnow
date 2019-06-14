@@ -13,6 +13,7 @@ public class SnowCamera : MonoBehaviour
 	public float minVerticalAngle = -60f;                              // Camera min clamp angle.
 	public string XAxis = "Analog X";                                  // The default horizontal axis input name.
 	public string YAxis = "Analog Y";                                  // The default vertical axis input name.
+    public bool firstPerson = false;
 
 	private float angleH = 0;                                          // Float to store camera horizontal angle related to mouse movement.
 	private float angleV = 0;                                          // Float to store camera vertical angle related to mouse movement.
@@ -21,6 +22,7 @@ public class SnowCamera : MonoBehaviour
 	private float relCameraPosMag;                                     // Current camera distance to the player.
 	private Vector3 smoothPivotOffset;                                 // Camera current pivot offset on interpolation.
 	private Vector3 smoothCamOffset;                                   // Camera current offset on interpolation.
+    private Vector3 defaultSmoothCamOffset;
 	private Vector3 targetPivotOffset;                                 // Camera pivot offset target to iterpolate.
 	private Vector3 targetCamOffset;                                   // Camera offset target to interpolate.
 	private float defaultFOV;                                          // Default camera Field of View.
@@ -50,7 +52,8 @@ public class SnowCamera : MonoBehaviour
         // Set up references and default values.
         smoothPivotOffset = pivotOffset;
 		smoothCamOffset = camOffset;
-		defaultFOV = cam.GetComponent<Camera>().fieldOfView;
+        defaultSmoothCamOffset = camOffset;
+        defaultFOV = cam.GetComponent<Camera>().fieldOfView;
 		angleH = player.eulerAngles.y;
 
 		ResetTargetOffsets ();
@@ -62,46 +65,53 @@ public class SnowCamera : MonoBehaviour
 	{
         if (player.GetComponent<SnowballController>().isOnGround)
         {
-            // Get mouse movement to orbit the camera.
-            // Mouse:
-            angleH += Mathf.Clamp(Input.GetAxis("Mouse X"), -1, 1) * horizontalAimingSpeed;
-            angleV += Mathf.Clamp(Input.GetAxis("Mouse Y"), -1, 1) * verticalAimingSpeed;
-            // Joystick:
-            //angleH += Mathf.Clamp(Input.GetAxis(XAxis), -1, 1) * 60 * horizontalAimingSpeed * Time.deltaTime;
-            //angleV += Mathf.Clamp(Input.GetAxis(YAxis), -1, 1) * 60 * verticalAimingSpeed * Time.deltaTime;
-
-            // Set vertical movement limit.
-            angleV = Mathf.Clamp(angleV, minVerticalAngle, targetMaxVerticalAngle);
-
-            // Set camera orientation.
-            Quaternion camYRotation = Quaternion.Euler(0, angleH, 0);
-            Quaternion aimRotation = Quaternion.Euler(-angleV, angleH, 0);
-            cam.rotation = aimRotation;
-
-            // Set FOV.
-            cam.GetComponent<Camera>().fieldOfView = Mathf.Lerp(cam.GetComponent<Camera>().fieldOfView, targetFOV, Time.deltaTime);
-
-            // Test for collision with the environment based on current camera position.
-            Vector3 baseTempPosition = player.position + camYRotation * targetPivotOffset;
-            Vector3 noCollisionOffset = targetCamOffset;
-            for (float zOffset = targetCamOffset.z; zOffset <= 0; zOffset += 0.5f)
+            if (firstPerson)
             {
-                noCollisionOffset.z = zOffset;
-                if (DoubleViewingPosCheck(baseTempPosition + aimRotation * noCollisionOffset, Mathf.Abs(zOffset)) || zOffset == 0)
-                {
-                    break;
-                }
+                cam.position = player.position;
+                cam.rotation = player.rotation;
             }
+            else
+            {
+                // Get mouse movement to orbit the camera.
+                // Mouse:
+                angleH += Mathf.Clamp(Input.GetAxis("Mouse X"), -1, 1) * horizontalAimingSpeed;
+                angleV += Mathf.Clamp(Input.GetAxis("Mouse Y"), -1, 1) * verticalAimingSpeed;
+                // Joystick:
+                //angleH += Mathf.Clamp(Input.GetAxis(XAxis), -1, 1) * 60 * horizontalAimingSpeed * Time.deltaTime;
+                //angleV += Mathf.Clamp(Input.GetAxis(YAxis), -1, 1) * 60 * verticalAimingSpeed * Time.deltaTime;
 
-            // Repostition the camera.
-            smoothPivotOffset = Vector3.Lerp(smoothPivotOffset, targetPivotOffset, smooth * Time.deltaTime);
-           
-            smoothCamOffset = Vector3.Lerp(smoothCamOffset, noCollisionOffset, smooth * Time.deltaTime);
-            var distance = Vector3.Distance(new Vector3(0,0,0), smoothCamOffset) + (player.GetComponent<SnowballController>().size / 2);
-            var normal = smoothCamOffset.normalized;
-            var newCamOffset = (smoothCamOffset.normalized * distance);
+                // Set vertical movement limit.
+                angleV = Mathf.Clamp(angleV, minVerticalAngle, targetMaxVerticalAngle);
 
-            cam.position = player.position + camYRotation * smoothPivotOffset + aimRotation * (smoothCamOffset.normalized * distance);
+                // Set camera orientation.
+                Quaternion camYRotation = Quaternion.Euler(0, angleH, 0);
+                Quaternion aimRotation = Quaternion.Euler(-angleV, angleH, 0);
+                cam.rotation = aimRotation;
+
+                // Set FOV.
+                cam.GetComponent<Camera>().fieldOfView = Mathf.Lerp(cam.GetComponent<Camera>().fieldOfView, targetFOV, Time.deltaTime);
+
+                // Test for collision with the environment based on current camera position.
+                Vector3 baseTempPosition = player.position + camYRotation * targetPivotOffset;
+                Vector3 noCollisionOffset = targetCamOffset;
+                for (float zOffset = targetCamOffset.z; zOffset <= 0; zOffset += 0.5f)
+                {
+                    noCollisionOffset.z = zOffset;
+                    if (DoubleViewingPosCheck(baseTempPosition + aimRotation * noCollisionOffset, Mathf.Abs(zOffset)) || zOffset == 0)
+                    {
+                        break;
+                    }
+                }
+
+                // Repostition the camera.
+                smoothPivotOffset = Vector3.Lerp(smoothPivotOffset, targetPivotOffset, smooth * Time.deltaTime);
+
+                smoothCamOffset = Vector3.Lerp(smoothCamOffset, noCollisionOffset, smooth * Time.deltaTime);
+                var distance = Vector3.Distance(new Vector3(0, 0, 0), defaultSmoothCamOffset) + (player.GetComponent<SnowballController>().size / 2);
+                smoothCamOffset = (smoothCamOffset.normalized * distance);
+
+                cam.position = player.position + camYRotation * smoothPivotOffset + aimRotation * smoothCamOffset;
+            }
         } else
         {
             cam.position = player.position + new Vector3(0, 2, 0);
@@ -109,8 +119,13 @@ public class SnowCamera : MonoBehaviour
         }
     }
 
-	// Set camera offsets to custom values.
-	public void SetTargetOffsets(Vector3 newPivotOffset, Vector3 newCamOffset)
+    public void setFirstPerson(bool firstPerson)
+    {
+        this.firstPerson = firstPerson;
+    }
+
+    // Set camera offsets to custom values.
+    public void SetTargetOffsets(Vector3 newPivotOffset, Vector3 newCamOffset)
 	{
 		targetPivotOffset = newPivotOffset;
 		targetCamOffset = newCamOffset;

@@ -6,3 +6,4 @@ obj
 *.csproj
 *.pidb
 *.sln
+.vs

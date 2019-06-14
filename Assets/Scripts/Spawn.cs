@@ -39,9 +39,9 @@ public class Spawn : MonoBehaviour
             snowballController.toSnowball();
         }
 
-        foreach (FollowSnowball followSnowball in GameObject.FindObjectsOfType<FollowSnowball>())
+        foreach (ThirdPersonOrbitCamBasic followSnowball in GameObject.FindObjectsOfType<ThirdPersonOrbitCamBasic>())
         {
-            followSnowball.target = latestSnowball.transform;
+            followSnowball.player = latestSnowball.transform;
         }
 
         inventory.updateInventory(latestSnowball.GetComponent<SnowballInventory>());

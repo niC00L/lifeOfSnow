@@ -87,7 +87,7 @@ public class SnowballMover : MonoBehaviour
             }
         }
 
-        rotateCamera();
+        //rotateCamera();
 
         if (Input.GetKey(KeyCode.C) || manualInputConnect)
         {

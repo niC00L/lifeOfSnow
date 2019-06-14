@@ -8,6 +8,7 @@ public class SnowballController : MonoBehaviour {
 	public float size = 0;
 	public float startSize = 0.04f;
 	public float snowflakeFallSpeed = 0.1f;
+    public float moveSpeed = 1.0f;
 	public float jumpAllowDistance = 0.4f;
 
 	private SnowTerrain[] snowTerrains;

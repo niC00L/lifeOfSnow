@@ -17,6 +17,8 @@ public class Orbit : MonoBehaviour
 
     private Rigidbody rigidbody;
 
+    public bool firstPerson = false;
+
     float x = 0.0f;
     float y = 0.0f;
 
@@ -40,6 +42,12 @@ public class Orbit : MonoBehaviour
     {
         if (target)
         {
+            if (firstPerson)
+            {
+                transform.position = target.position;
+                transform.rotation = target.rotation;
+                return;
+            }
             x += Input.GetAxis("Mouse X") * xSpeed * distance * 0.02f;
             y -= Input.GetAxis("Mouse Y") * ySpeed * 0.02f;
 

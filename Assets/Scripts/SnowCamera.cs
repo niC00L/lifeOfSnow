@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 // This class corresponds to the 3rd person camera features.
-public class ThirdPersonOrbitCamBasic : MonoBehaviour 
+public class SnowCamera : MonoBehaviour 
 {
 	public Transform player;                                           // Player's reference.
 	public Vector3 pivotOffset = new Vector3(0.0f, 1.0f,  0.0f);       // Offset to repoint the camera.

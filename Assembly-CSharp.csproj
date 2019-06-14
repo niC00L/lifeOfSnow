@@ -76,10 +76,10 @@
     <Compile Include="Assets\Scripts\SnowballController.cs" />
     <Compile Include="Assets\Scripts\SnowballInventory.cs" />
     <Compile Include="Assets\Scripts\SnowballMover.cs" />
+    <Compile Include="Assets\Scripts\SnowCamera.cs" />
     <Compile Include="Assets\Scripts\SnowTerrain.cs" />
     <Compile Include="Assets\Scripts\SnowTerrainIncrease.cs" />
     <Compile Include="Assets\Scripts\Spawn.cs" />
-    <Compile Include="Assets\Scripts\ThirdPersonOrbitCamBasic.cs" />
     <Compile Include="Assets\SimpleMobileJoysticks\JoystickScripts\Demo.cs" />
     <Compile Include="Assets\SimpleMobileJoysticks\JoystickScripts\Joystick.cs" />
     <Compile Include="Assets\SimpleMobileJoysticks\JoystickScripts\Sample.cs" />

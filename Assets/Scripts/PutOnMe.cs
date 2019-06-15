@@ -35,14 +35,14 @@ public class PutOnMe : MonoBehaviour {
         puttingObject = item;
     }
 
-    public void putOnMe(GameObject asset)
+    public void putOnMe(GameObject item)
     {
-        GameObject item = Instantiate(asset);
         item.layer = 0;
         item.transform.parent = spawn.latestSnowball.transform;
 
         puttingOn = spawn.latestSnowball.GetComponent<SnowballController>();
         puttingObject = item.transform;
+        item.SetActive(true);
     }
 
     public void stopPutOnMe()

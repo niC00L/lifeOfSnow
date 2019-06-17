@@ -49,6 +49,11 @@ public class PutOnMe : MonoBehaviour {
             puttingObject = item.transform;
 
         }
+         //hotfix teleproting of the pot - carrot goes to the UItem with the same PutOnMe object(first slot) and it uses puttingObject of pot, so I set it to null
+        if (item.name == "Carrot")
+        {
+            puttingObject = null;
+        }
 
         item.SetActive(true);
     }

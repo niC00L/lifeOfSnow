@@ -31,6 +31,7 @@ public class SnowballMover : MonoBehaviour
     {
         spawn = this.GetComponent<Spawn>();
         inventory = FindObjectOfType<Inventory>();
+
         controllerMove = FindObjectOfType<Joystick>();
         controllerCamera = FindObjectOfType<TouchPad>();
         mainCamera = Camera.main;
@@ -96,12 +97,11 @@ public class SnowballMover : MonoBehaviour
 
         if (Input.GetKey(KeyCode.R) || manualInputRespawn)
         {
+            //            GameObject cube = GameObject.FindWithTag("InventoryPanel");
+            inventory.inventoryUI.RemoveSelectedItems();
+            //var x = GameObject.Find("InventoryPanel");
+              // x.GetComponent<UIInventory>().RemoveSelectedItems();
             spawn.trySpawnSnowball();
-        }
-
-        if(Input.GetKey(KeyCode.I) || manualInputInvenotry)
-        {
-            inventory.toggle();
         }
     }
 

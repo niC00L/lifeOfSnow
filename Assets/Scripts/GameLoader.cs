@@ -5,11 +5,15 @@ public class GameLoader : MonoBehaviour
 {
 
     private GameObject menu;
+    private GameObject inventory;
 
     void Start()
     {
         menu = GameObject.Find("MENU");
         menu.SetActive(false);
+
+        inventory = GameObject.Find("Inventory");
+        inventory.SetActive(false);
     }
 
     void Update()
@@ -25,7 +29,21 @@ public class GameLoader : MonoBehaviour
                 hideMenu();
             }
         }
+        if (Input.GetKeyDown(KeyCode.I)) { 
+            if (inventory.activeSelf)
+            {
+                inventory.SetActive(false);
+                Time.timeScale = 1;
+            }
+            else
+            {
+                inventory.SetActive(true);
+                Time.timeScale = 0;
+            }
+
+        }
     }
+
 
     public void showMenu()
     {

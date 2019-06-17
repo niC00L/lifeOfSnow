@@ -45,8 +45,7 @@ public class Item: MonoBehaviour {
     void Update()
     {
         Vector3 snowballPosition = spawn.latestSnowball.transform.position;
-        var t = instance.transform.position;
-        var x = snowballPosition - t;
+        
         if ((snowballPosition - instance.transform.position).magnitude < pickupDistance)
         {
             Inventory inv = GameObject.Find("Player").GetComponent<Inventory>();

@@ -11,6 +11,7 @@ namespace Wacki.IndentSurface
         public RenderTexture tempTestRenderTexture;
         public int rtWidth = 512;
         public int rtHeight = 512;
+        public Transform snowball;
 
         private RenderTexture targetTexture;
         private RenderTexture auxTexture;
@@ -94,13 +95,15 @@ namespace Wacki.IndentSurface
             x = Mathf.Round(x);
             y = Mathf.Round(y);
 
+            //var sizeMul = (int)snowball.GetComponent<SnowballController>().size + 1;
+            var sizeMul = 5;
             // setup rect for our indent texture stamp to draw into
             Rect screenRect = new Rect();
             // put the center of the stamp at the actual draw position
             screenRect.x = x - stampTexture.width * 0.5f;
             screenRect.y = (targetTexture.height - y) - stampTexture.height * 0.5f;
-            screenRect.width = stampTexture.width;
-            screenRect.height = stampTexture.height;
+            screenRect.width = stampTexture.width * sizeMul;
+            screenRect.height = stampTexture.height * sizeMul;
 
             var tempVec = new Vector4();
 
@@ -119,8 +122,6 @@ namespace Wacki.IndentSurface
 
             GL.PopMatrix();
             RenderTexture.active = null; 
-
-
         }
     }
 

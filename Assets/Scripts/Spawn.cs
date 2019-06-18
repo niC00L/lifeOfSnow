@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using Wacki.IndentSurface;
 
 public class Spawn : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class Spawn : MonoBehaviour
     {
 
         latestSnowball = (GameObject)Instantiate(this.snowball);
-        latestSnowball.transform.position = this.transform.position;
+        latestSnowball.transform.position = new Vector3(0, 50, 0);
 
         SnowballController snowballController = latestSnowball.GetComponent<SnowballController>();
         if(snowballSpawnSize > 0) { 
@@ -43,6 +44,8 @@ public class Spawn : MonoBehaviour
         {
             followSnowball.player = latestSnowball.transform;
         }
+        var indent = GameObject.FindObjectOfType<IndentDraw>();
+        indent.snowball = latestSnowball.transform;
 
         inventory.updateInventory(latestSnowball.GetComponent<SnowballInventory>());
     }

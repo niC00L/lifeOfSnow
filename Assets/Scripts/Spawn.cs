@@ -44,8 +44,11 @@ public class Spawn : MonoBehaviour
         {
             followSnowball.player = latestSnowball.transform;
         }
-        var indent = GameObject.FindObjectOfType<IndentDraw>();
-        indent.snowball = latestSnowball.transform;
+
+        foreach (DrawWithMouse snowSurface in GameObject.FindObjectsOfType<DrawWithMouse>())
+        {
+            snowSurface._snowball = latestSnowball.transform;
+        }
 
         inventory.updateInventory(latestSnowball.GetComponent<SnowballInventory>());
     }

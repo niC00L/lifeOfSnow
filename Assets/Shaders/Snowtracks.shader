@@ -2,7 +2,7 @@
 {
     Properties
     {
-		_Tess("Tessellation", Range(1,32)) = 4
+		_Tess("Tessellation", Range(10,100)) = 40
 		_SnowColor("Snow Color", Color) = (1,1,1,1)
 		_SnowTex("Snow (RGB)", 2D) = "white" {}
 		_GroundColor("Ground Color", Color) = (1,1,1,1)
@@ -34,8 +34,8 @@
 			float _Tess;
 
 			float4 tessDistance(appdata v0, appdata v1, appdata v2) {
-				float minDist = 10.0;
-				float maxDist = 80.0;
+				float minDist = 2.0;
+				float maxDist = 20.0;
 				return UnityDistanceBasedTess(v0.vertex, v1.vertex, v2.vertex, minDist, maxDist, _Tess);
 			}
 

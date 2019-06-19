@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\SnowTerrainIncrease.cs" />
     <Compile Include="Assets\Scripts\Spawn.cs" />
     <Compile Include="Assets\Shaders\DrawWithMouse.cs" />
+    <Compile Include="Assets\Shaders\SnowballTracks.cs" />
     <Compile Include="Assets\SimpleMobileJoysticks\JoystickScripts\Demo.cs" />
     <Compile Include="Assets\SimpleMobileJoysticks\JoystickScripts\Joystick.cs" />
     <Compile Include="Assets\SimpleMobileJoysticks\JoystickScripts\Sample.cs" />

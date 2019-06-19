@@ -29,7 +29,7 @@ public class DrawWithMouse : MonoBehaviour
 
     void Update()
     {
-        _brushSize = _snowball.GetComponent<SnowballController>().size;
+        var size  = _brushSize * _snowball.GetComponent<SnowballController>().size;
         if (Physics.Raycast(_snowball.position, -Vector3.up, out _groundHit, 1f, _layerMask))
         {
             _drawMaterial.SetVector("_Coordinate", new Vector4(_groundHit.textureCoord.x, _groundHit.textureCoord.y, 0, 0));

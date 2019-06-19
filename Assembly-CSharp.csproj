@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\Spawn.cs" />
     <Compile Include="Assets\Shaders\DrawWithMouse.cs" />
     <Compile Include="Assets\Shaders\SnowballTracks.cs" />
+    <Compile Include="Assets\Shaders\SnowNoise.cs" />
     <Compile Include="Assets\SimpleMobileJoysticks\JoystickScripts\Demo.cs" />
     <Compile Include="Assets\SimpleMobileJoysticks\JoystickScripts\Joystick.cs" />
     <Compile Include="Assets\SimpleMobileJoysticks\JoystickScripts\Sample.cs" />
@@ -98,6 +99,7 @@
     <None Include="Assets\IndentSurface\Shaders\IndentStamp_ADD.shader" />
     <None Include="Assets\IndentSurface\Shaders\IndentStamp_MIN.shader" />
     <None Include="Assets\Shaders\Snowtracks.shader" />
+    <None Include="Assets\Shaders\Snowfall.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/GIT/lifeofsnow/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

@@ -11,10 +11,10 @@ public class DrawWithMouse : MonoBehaviour
     [Range(0,1)]
     public float _brushStrength = 1;
 
-    private int _layerMask;
+    int _layerMask;
     private RenderTexture _splatmap;
     private Material _snowMaterial, _drawMaterial;
-    private RaycastHit _hit;
+    private RaycastHit _groundHit;
 
     void Start()
     {
@@ -30,9 +30,9 @@ public class DrawWithMouse : MonoBehaviour
     void Update()
     {
         _brushSize = _snowball.GetComponent<SnowballController>().size;
-        if (Physics.Raycast(_snowball.position, -Vector3.up, out _hit, 1f, _layerMask))
+        if (Physics.Raycast(_snowball.position, -Vector3.up, out _groundHit, 1f, _layerMask))
         {
-            _drawMaterial.SetVector("_Coordinate", new Vector4(_hit.textureCoord.x, _hit.textureCoord.y, 0, 0));
+            _drawMaterial.SetVector("_Coordinate", new Vector4(_groundHit.textureCoord.x, _groundHit.textureCoord.y, 0, 0));
             _drawMaterial.SetFloat("_Strength", _brushStrength);
             _drawMaterial.SetFloat("_Size", _brushSize);
             RenderTexture temp = RenderTexture.GetTemporary(_splatmap.width, _splatmap.height, 0, RenderTextureFormat.ARGBFloat);

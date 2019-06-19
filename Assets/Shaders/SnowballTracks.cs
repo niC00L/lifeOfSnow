@@ -7,13 +7,13 @@ public class SnowballTracks : MonoBehaviour
     public Shader _drawShader;
     public GameObject _terrain;
     //public Transform _snowball;
-    int _layerMask;
 
     [Range(1, 500)]
     public float _brushSize = 1;
     [Range(0, 1)]
     public float _brushStrength = 1;
 
+    int _layerMask;
     private RenderTexture _splatmap;
     private Material _snowMaterial, _drawMaterial;
     private RaycastHit _groundHit;

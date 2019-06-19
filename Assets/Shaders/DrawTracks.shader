@@ -14,7 +14,8 @@
         Pass
         {
             CGPROGRAM
-            #pragma vertex vert
+            #pragma vertex vert 
+			#pragma fragment frag
             #include "UnityCG.cginc"
 
             struct appdata
@@ -46,9 +47,9 @@
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv);
 				//the lower the pow, the larger the brush
-				float draw = pow(saturate(1 - distance(i.uv, _Coordinate.xy)), 1000)
-				fixed4 drawcol = _Color * (draw * 1)
-				return saturate(col + drawcol)				
+				float draw = pow(saturate(1 - distance(i.uv, _Coordinate.xy)), 100);
+				fixed4 drawcol = _Color * (draw * 1);
+				return saturate(col + drawcol);
             }
             ENDCG
         }

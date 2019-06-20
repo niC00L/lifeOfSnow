@@ -62,7 +62,7 @@ public class SnowCamera : MonoBehaviour
 	}
 
 	void Update()
-	{
+	{        
         if (player.GetComponent<SnowballController>().isOnGround)
         {
             if (firstPerson)

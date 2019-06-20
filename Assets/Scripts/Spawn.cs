@@ -31,7 +31,7 @@ public class Spawn : MonoBehaviour
     {
 
         latestSnowball = (GameObject)Instantiate(this.snowball);
-        latestSnowball.transform.position = this.transform.position;
+        latestSnowball.transform.position = new Vector3(0, 60, 0);
 
         SnowballController snowballController = latestSnowball.GetComponent<SnowballController>();
         if(snowballSpawnSize > 0) { 

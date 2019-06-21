@@ -19,7 +19,7 @@ public class PutOnMe : MonoBehaviour {
         {
             Vector3 snowballPos = puttingOn.transform.position;
             Vector3 toCamera = (mainCamera.position - snowballPos).normalized;
-            puttingObject.transform.position = snowballPos + toCamera * puttingOn.size;
+            puttingObject.transform.position = snowballPos + toCamera * puttingOn.size/2;
             puttingObject.transform.LookAt(snowballPos);
 
             if(Input.GetKeyDown(KeyCode.Space))
@@ -29,20 +29,33 @@ public class PutOnMe : MonoBehaviour {
         }
 	}
 
-    public void putOnMe(Transform item)
+    /*public void putOnMe(Transform item)
     {
         puttingOn = spawn.latestSnowball.GetComponent<SnowballController>();
         puttingObject = item;
-    }
+    }*/
 
-    public void putOnMe(GameObject asset)
+    public void putOnMe(GameObject item)
     {
-        GameObject item = Instantiate(asset);
         item.layer = 0;
         item.transform.parent = spawn.latestSnowball.transform;
-
+        item.transform.localPosition = Vector3.zero;
         puttingOn = spawn.latestSnowball.GetComponent<SnowballController>();
-        puttingObject = item.transform;
+        if (item.name == "Pot")
+        {
+            item.transform.localPosition = new Vector3(0.05f, 0.0f, 0.28f);
+            //0.05, 0, 0.28
+            //item.transform.localPosition = new Vector3(0.1f, 0.1f, 0.2f);
+            puttingObject = item.transform;
+
+        }
+         //hotfix teleproting of the pot - carrot goes to the UItem with the same PutOnMe object(first slot) and it uses puttingObject of pot, so I set it to null
+        if (item.name == "Carrot")
+        {
+            puttingObject = null;
+        }
+
+        item.SetActive(true);
     }
 
     public void stopPutOnMe()

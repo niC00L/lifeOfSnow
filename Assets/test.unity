@@ -3423,7 +3423,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
-  pickupDistance: 5
 --- !u!64 &825750816
 MeshCollider:
   m_ObjectHideFlags: 0

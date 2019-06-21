@@ -29,7 +29,7 @@ public class Spawn : MonoBehaviour
     {
 
         latestSnowball = (GameObject)Instantiate(this.snowball);
-        latestSnowball.transform.position = this.transform.position;
+        latestSnowball.transform.position = new Vector3(0, 60, 0);
 
         SnowballController snowballController = latestSnowball.GetComponent<SnowballController>();
         if(snowballSpawnSize > 0) { 
@@ -37,9 +37,9 @@ public class Spawn : MonoBehaviour
             snowballController.toSnowball();
         }
 
-        foreach (FollowSnowball followSnowball in GameObject.FindObjectsOfType<FollowSnowball>())
+        foreach (SnowCamera followSnowball in GameObject.FindObjectsOfType<SnowCamera>())
         {
-            followSnowball.target = latestSnowball.transform;
+            followSnowball.player = latestSnowball.transform;
         }
 
     }

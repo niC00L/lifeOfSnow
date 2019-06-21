@@ -107,7 +107,7 @@ public class SnowCamera : MonoBehaviour
                 smoothPivotOffset = Vector3.Lerp(smoothPivotOffset, targetPivotOffset, smooth * Time.deltaTime);
 
                 smoothCamOffset = Vector3.Lerp(smoothCamOffset, noCollisionOffset, smooth * Time.deltaTime);
-                var distance = Vector3.Distance(new Vector3(0, 0, 0), defaultSmoothCamOffset) + (player.GetComponent<SnowballController>().size / 2);
+                var distance = Vector3.Distance(new Vector3(0, 0, 0), defaultSmoothCamOffset) + (player.GetComponent<SnowballController>().size);
                 smoothCamOffset = (smoothCamOffset.normalized * distance);
 
                 cam.position = player.position + camYRotation * smoothPivotOffset + aimRotation * smoothCamOffset;

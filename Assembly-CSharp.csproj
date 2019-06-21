@@ -64,7 +64,6 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\DamageSnow.cs" />
     <Compile Include="Assets\Scripts\FollowSimple.cs" />
-    <Compile Include="Assets\Scripts\FollowSnowball.cs" />
     <Compile Include="Assets\Scripts\GameLoader.cs" />
     <Compile Include="Assets\Scripts\inner\TerrainModificationPosition.cs" />
     <Compile Include="Assets\Scripts\Inventory.cs" />
@@ -73,6 +72,7 @@
     <Compile Include="Assets\Scripts\SlowlyRotate.cs" />
     <Compile Include="Assets\Scripts\SnowballController.cs" />
     <Compile Include="Assets\Scripts\SnowballMover.cs" />
+    <Compile Include="Assets\Scripts\SnowCamera.cs" />
     <Compile Include="Assets\Scripts\SnowTerrain.cs" />
     <Compile Include="Assets\Scripts\SnowTerrainIncrease.cs" />
     <Compile Include="Assets\Scripts\Spawn.cs" />

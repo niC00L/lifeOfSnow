@@ -220,8 +220,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 2
-  pickupDistance: 5
 --- !u!64 &31551419
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -377,8 +375,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 1
-  pickupDistance: 5
 --- !u!135 &88815375
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -489,8 +485,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &89929239
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -655,8 +649,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &106279492
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -768,8 +760,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 2
-  pickupDistance: 5
 --- !u!64 &121161493
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -881,8 +871,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &122147917
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -994,8 +982,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &132599708
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1270,8 +1256,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &167743085
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1524,8 +1508,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &258008194
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1875,6 +1857,35 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3e9c68a8efed85244a5c629e35ab042e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23b99469a836f1c49b461b213c6dcae3, type: 2}
+--- !u!1 &294749921 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 186828, guid: 3c7bffb9a046ec84a931c1a2d68933ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 427658656}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &294749922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 294749921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ac4c4576b185e54a867840c8d371797, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 419810, guid: 72d71321a6e5a2f4c803b7d8659fbcff, type: 3}
+  pivotOffset: {x: 0, y: 0, z: 0}
+  camOffset: {x: 0, y: 0.3, z: -2}
+  smooth: 10
+  horizontalAimingSpeed: 6
+  verticalAimingSpeed: 6
+  maxVerticalAngle: 5
+  minVerticalAngle: -60
+  XAxis: Analog X
+  YAxis: Analog Y
+  firstPerson: 0
 --- !u!1 &294805881
 GameObject:
   m_ObjectHideFlags: 0
@@ -1924,8 +1935,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &294805884
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2197,8 +2206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 0
-  pickupDistance: 5
 --- !u!64 &343291739
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2637,7 +2644,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393157993}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -2806,8 +2813,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &418936551
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2919,8 +2924,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &422715459
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2996,7 +2999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 441776, guid: 3c7bffb9a046ec84a931c1a2d68933ef, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 519
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 441776, guid: 3c7bffb9a046ec84a931c1a2d68933ef, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3022,7 +3025,24 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11432018, guid: 3c7bffb9a046ec84a931c1a2d68933ef, type: 3}
+      propertyPath: pivotOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11432018, guid: 3c7bffb9a046ec84a931c1a2d68933ef, type: 3}
+      propertyPath: camOffset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11432018, guid: 3c7bffb9a046ec84a931c1a2d68933ef, type: 3}
+      propertyPath: camOffset.y
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11432018, guid: 3c7bffb9a046ec84a931c1a2d68933ef, type: 3}
+      propertyPath: maxVerticalAngle
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11432018, guid: 3c7bffb9a046ec84a931c1a2d68933ef, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3c7bffb9a046ec84a931c1a2d68933ef, type: 3}
 --- !u!1001 &436321188
 PrefabInstance:
@@ -3190,8 +3210,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &443536115
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3303,8 +3321,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &456125474
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3729,8 +3745,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &508631447
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3848,8 +3862,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &511982645
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4119,8 +4131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &536491699
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4232,8 +4242,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &545979485
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4345,8 +4353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &563454819
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4517,8 +4523,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &583475047
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4756,8 +4760,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &630715848
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5399,8 +5401,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &668780249
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5512,8 +5512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &678334522
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5727,8 +5725,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &747270724
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5840,8 +5836,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &773636664
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5953,8 +5947,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &780199325
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6155,8 +6147,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &817511440
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6327,8 +6317,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 2
-  pickupDistance: 5
 --- !u!64 &835115231
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6680,8 +6668,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 0
-  pickupDistance: 5
 --- !u!64 &912105681
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6745,8 +6731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &922057526
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7157,8 +7141,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &974657663
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7455,8 +7437,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &997149029
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7621,8 +7601,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1013394868
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7818,8 +7796,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 0
-  pickupDistance: 5
 --- !u!64 &1023506746
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7936,8 +7912,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1028281964
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8232,8 +8206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1062302038
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8444,8 +8416,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1091526911
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8691,8 +8661,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 2
-  pickupDistance: 5
 --- !u!64 &1101392516
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8932,8 +8900,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1149456283
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9030,8 +8996,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 2
-  pickupDistance: 5
 --- !u!64 &1151705151
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9143,8 +9107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1167078995
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9351,8 +9313,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1183520417
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9570,8 +9530,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1189892154
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9751,8 +9709,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1205600200
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9864,8 +9820,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1210850163
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10378,8 +10332,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 0
-  pickupDistance: 5
 --- !u!64 &1236325991
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10463,8 +10415,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1241169020
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10682,8 +10632,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1276352984
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10795,8 +10743,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1288832206
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11033,7 +10979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TouchAria: {x: 300, y: 300}
   JoystickInput: {x: 0, y: 0}
-  last: {x: 150, y: 150, z: 0}
+  last: {x: 0, y: 0, z: 0}
   hideJoystick: 0
   startActionAtDrag: 1
   UsingUnityRemote: 0
@@ -11150,8 +11096,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1346144684
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11263,8 +11207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1366773044
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11449,8 +11391,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1403485045
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11600,8 +11540,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 1
-  pickupDistance: 5
 --- !u!135 &1423164650
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -11712,8 +11650,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1436929613
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11831,8 +11767,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1440663132
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -11944,8 +11878,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1441760582
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12057,8 +11989,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1446435365
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12182,8 +12112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1450309964
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12391,7 +12319,11 @@ PrefabInstance:
     - target: {fileID: 11469014, guid: 04140c4d49ccf7849898f48297d1eefa, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2061058885}
+      objectReference: {fileID: 294749922}
+    - target: {fileID: 11469014, guid: 04140c4d49ccf7849898f48297d1eefa, type: 3}
+      propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: setFirstPerson
+      objectReference: {fileID: 0}
     - target: {fileID: 11444930, guid: 04140c4d49ccf7849898f48297d1eefa, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -12920,8 +12852,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 2
-  pickupDistance: 5
 --- !u!64 &1588836977
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13033,8 +12963,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1591277439
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13370,12 +13298,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1caf40fc8bebb6b43b2550c05ca791d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TouchAria: {x: 700, y: 356}
+  TouchAria: {x: 700, y: 0}
   TouchPadInput: {x: 0, y: 0}
   FingerSize: {x: 93.2, y: 90}
-  Finger: {x: 558, y: 178, z: 0}
+  Finger: {x: 0, y: 0, z: 0}
   FingerS: {x: 93.2, y: 90, z: 0.4}
-  last: {x: 558, y: 178, z: 0}
+  last: {x: 0, y: 0, z: 0}
   UseImage: 0
   useImageSizeAsTouchAria: 1
   UsingUnityRemote: 0
@@ -13581,8 +13509,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1624569527
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13747,8 +13673,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 2
-  pickupDistance: 5
 --- !u!64 &1649701563
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13866,8 +13790,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1655817880
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13979,8 +13901,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1660339333
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14092,8 +14012,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1666460722
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14348,8 +14266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1702985212
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14622,8 +14538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1732142554
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14852,8 +14766,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1742023708
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14977,8 +14889,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 2
-  pickupDistance: 5
 --- !u!64 &1805249405
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15090,8 +15000,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1828796915
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15260,8 +15168,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1835993838
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15358,8 +15264,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 1
-  pickupDistance: 5
 --- !u!135 &1838677029
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15549,8 +15453,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1849867495
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15756,8 +15658,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1870647947
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -15999,8 +15899,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1901991458
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16222,8 +16120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 1
-  pickupDistance: 5
 --- !u!135 &1923931498
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -16334,8 +16230,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1924431716
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16644,8 +16538,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1954224214
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16757,8 +16649,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1960619775
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -16908,8 +16798,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 2
-  pickupDistance: 5
 --- !u!64 &1971049605
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17021,8 +16909,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1972635184
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17187,8 +17073,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &1979266765
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -17847,8 +17731,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &2038085168
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18130,8 +18012,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 3
-  pickupDistance: 5
 --- !u!64 &2058241073
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18194,18 +18074,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2058241070}
   m_Mesh: {fileID: 4300000, guid: 8d841debbde231c4a9870dbb86c72183, type: 3}
---- !u!114 &2061058885 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 11432018, guid: 3c7bffb9a046ec84a931c1a2d68933ef,
-    type: 3}
-  m_PrefabInstance: {fileID: 427658656}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d8a113dc9d0ec744b458b856f33748f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2061058890 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 441776, guid: 3c7bffb9a046ec84a931c1a2d68933ef,
@@ -18607,8 +18475,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 1
-  pickupDistance: 5
 --- !u!135 &2109488781
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18890,8 +18756,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3ed93356817994429cd2e6a670f501a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 2
-  pickupDistance: 5
 --- !u!64 &2128733042
 MeshCollider:
   m_ObjectHideFlags: 0

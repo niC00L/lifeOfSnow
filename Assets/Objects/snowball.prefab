@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5484098}
   - component: {fileID: 13592300}
   - component: {fileID: 11465126}
-  - component: {fileID: 11441464}
   - component: {fileID: 11449710}
   m_Layer: 0
   m_Name: snowball
@@ -87,20 +86,6 @@ MonoBehaviour:
   snowTerrainDecreasment: 0.0001
   connectRepeatTime: 1
   isOnGround: 0
---- !u!114 &11441464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 119810}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fddf32e0b807ab645bdebc138b0a03e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  invSize: 9
-  items: 
 --- !u!114 &11449710
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2644,7 +2644,7 @@ Canvas:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393157993}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
   m_Camera: {fileID: 0}
@@ -10979,7 +10979,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TouchAria: {x: 300, y: 300}
   JoystickInput: {x: 0, y: 0}
-  last: {x: 0, y: 0, z: 0}
+  last: {x: 150, y: 150, z: 0}
   hideJoystick: 0
   startActionAtDrag: 1
   UsingUnityRemote: 0
@@ -13298,12 +13298,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1caf40fc8bebb6b43b2550c05ca791d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TouchAria: {x: 700, y: 0}
+  TouchAria: {x: 700, y: 524}
   TouchPadInput: {x: 0, y: 0}
   FingerSize: {x: 93.2, y: 90}
-  Finger: {x: 0, y: 0, z: 0}
+  Finger: {x: 426, y: 262, z: 0}
   FingerS: {x: 93.2, y: 90, z: 0.4}
-  last: {x: 0, y: 0, z: 0}
+  last: {x: 426, y: 262, z: 0}
   UseImage: 0
   useImageSizeAsTouchAria: 1
   UsingUnityRemote: 0

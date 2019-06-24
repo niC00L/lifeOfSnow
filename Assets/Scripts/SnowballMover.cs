@@ -13,7 +13,7 @@ public class SnowballMover : MonoBehaviour
     public float moveSpeed = 2.0f;
     public float moveSpeedAir = 1.0f;
     public float jumpSpeed = 2.0f;
-    public float jumpRepeatTime = 0.4f;
+    public float jumpRepeatTime = 10000.4f;
     public float cameraMoveSpeed = 200.0f;
 
     private float lastJumpTime = -1.0f;
@@ -31,6 +31,7 @@ public class SnowballMover : MonoBehaviour
     {
         spawn = this.GetComponent<Spawn>();
         inventory = FindObjectOfType<Inventory>();
+
         controllerMove = FindObjectOfType<Joystick>();
         controllerCamera = FindObjectOfType<TouchPad>();
         mainCamera = Camera.main;
@@ -96,12 +97,11 @@ public class SnowballMover : MonoBehaviour
 
         if (Input.GetKey(KeyCode.R) || manualInputRespawn)
         {
+            //            GameObject cube = GameObject.FindWithTag("InventoryPanel");
+            inventory.inventoryUI.RemoveSelectedItems();
+            //var x = GameObject.Find("InventoryPanel");
+              // x.GetComponent<UIInventory>().RemoveSelectedItems();
             spawn.trySpawnSnowball();
-        }
-
-        if(Input.GetKey(KeyCode.I) || manualInputInvenotry)
-        {
-            inventory.toggle();
         }
     }
 

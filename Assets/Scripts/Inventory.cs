@@ -1,149 +1,93 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
+using UnityEngine;
 
 public class Inventory : MonoBehaviour {
+    public List<Item> characterItems = new List<Item>();
+    public UIInventory inventoryUI = new UIInventory();
 
-    public GameObject[] itemsIds;
-    public GameObject slotObject;
-
-    private Camera inventoryCamera;
-    private Transform inventoryContent;
-
-    private SnowballInventory activeInventory;
-    private int inventoryCols;
-    private int inventoryRows;
-
-    void Awake()
+    void Start()
     {
-        inventoryCamera = GameObject.Find("InventoryCamera").GetComponent<Camera>();
-        inventoryContent = GameObject.Find("InventoryContent").transform;
     }
-    
-    /* Already in snowball controller
-	void Update ()
+    void Update()
     {
-
-		if(Input.GetKeyDown(KeyCode.I)) {
-			if(inventoryCamera.enabled) {
-                close();
-			} else {
-                open();
-			}
-		}
-
-	}
-    */
-
-    public void close()
-    {
-        inventoryCamera.enabled = false;
-    }
-
-    public void open()
-    {
-        inventoryCamera.enabled = true;
-    }
-
-    public void toggle()
-    {
-        if (inventoryCamera.enabled)
+        var spawn = FindObjectOfType<Spawn>();
+        var snowball = spawn.latestSnowball.GetComponent<SnowballController>();
+        //var insideSnowBallForScale = snowball.transform.GetChild(1);
+        //items on snowball
+        for (int i = 2; i < snowball.transform.childCount; i++)
         {
-            close();
-        } else
-        {
-            open();
-        }
-    }
-
-    public void updateInventory(SnowballInventory snowballInventory)
-    {
-        //clear
-        activeInventory = snowballInventory;
-        inventoryRows = 0;
-        inventoryCols = 0;
-        for (int i = inventoryContent.childCount - 1; i >= 0; i--)
-        {
-            GameObject.Destroy(inventoryContent.GetChild(i).gameObject);
-        }
-        
-        if (activeInventory)
-        {
-            calculateInvenotryRowsCols();
-
-            //put new items
-            for (int i = 0; i < activeInventory.getInventorySize(); i++)
+            var child = snowball.transform.GetChild(i);
+            if (child.name == "Pot")
             {
-                updateSlot(i);
-                updateItem(i, activeInventory.getItem(i));
+                child.transform.localScale = new Vector3(snowball.size/2.5f, snowball.size/2.5f, snowball.size/2.5f);
+                //child.transform.localScale = snowball.transform.localScale;
+
+                /*if (snowball.size <= 1.85)
+                {
+                    child.transform.localPosition = new Vector3(0, 1, 0) * snowball.size / 2.4f;
+                }
+                else
+                {*/
+                    child.transform.localPosition = new Vector3(0, 1, 0) * snowball.size / 2.8f;
+
+                //}
+                
+
             }
 
-            //move invenotry camera
-            inventoryCamera.transform.position = getPositionForCamera();
+            if (child.name == "Carrot")
+            {
+                //child.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+                //child.transform.localScale = snowball.transform.localScale;
+                child.transform.localScale = new Vector3(0.0846585f*snowball.size / 2.0f, 0.111269f * snowball.size / 2.0f, 0.687029f * snowball.size / 2.0f);
+                //cim vacsa gula, tym dalej je mrkva, preto 2.4
+                //if (snowball.size > 1.15)
+                //{
+                    child.transform.localPosition = new Vector3(1, 0, 0) * snowball.size / 2.4f;
+
+                //}
+            }
         }
+        /*
+        if (this.selected)
+        {
+            var spawn = FindObjectOfType<Spawn>();
+            var snowball = spawn.latestSnowball.GetComponent<SnowballController>();
+            snowball.transform.chi
+            if (item.name == "Pot")
+            {
+                item.transform.localPosition = new Vector3(0, 1, 0) * snowball.size / 2;
+
+
+            }
+            if (item.name == "Carrot")
+            {
+                item.transform.localPosition = new Vector3(1, 0, 0) * snowball.size / 3;
+            }
+        }*/
+    }
+    public void GiveItem(Item item)
+    {
+        characterItems.Add(item);
+        inventoryUI.AddNewItem(item);
+        Debug.Log("Added item: " + item.title);
     }
 
-    private void updateItem(int slot, int itemId)
+    public Item CheckForItem(int id)
     {
-        if(itemId > 0) {
-            //item preview
-            Vector3 pos = getPositionForSlot(slot);
-            GameObject previewItem = Instantiate(itemsIds[itemId]);
-            previewItem.transform.parent = inventoryContent;
-            previewItem.transform.position = pos + new Vector3(0, 0, -4);
-            previewItem.layer = 8;
+        return characterItems.Find(item => item.id == id);
+    }
+
+    public void RemoveItem(int id)
+    {
+        Item itemToRemove = CheckForItem(id);
+        if (itemToRemove != null)
+        {
+            characterItems.Remove(itemToRemove);
+            inventoryUI.RemoveItem(itemToRemove);
+            Debug.Log("Removed item: " + itemToRemove.title);
         }
-    }
-
-    private void updateSlot(int slot)
-    {
-        Vector3 pos = getPositionForSlot(slot);
-        GameObject newSlot = Instantiate(slotObject);
-        newSlot.transform.parent = inventoryContent;
-        newSlot.transform.position = pos;
-        newSlot.name = "InventorySlot" + slot;
-        newSlot.GetComponent<InvenotrySlot>().slot = slot;
-    }
-
-    protected Vector3 getPositionForSlot(int slot)
-    {
-        int row = slot / inventoryCols;
-        int col = slot % inventoryCols;
-        return new Vector3(0.55f + col * 1.1f, -0.55f + row * -1.1f, 8);
-    }
-
-    protected Vector3 getPositionForCamera()
-    {
-        return new Vector3(inventoryCols * 0.55f, inventoryRows * -0.55f, 0);
-    }
-
-    protected void calculateInvenotryRowsCols()
-    {
-        int s = activeInventory.getInventorySize();
-
-        int ms = Mathf.FloorToInt(Mathf.Sqrt(s));
-        
-        this.inventoryRows = s / ms;
-        this.inventoryCols = ms;
-    }
-
-    public SnowballInventory getActiveInventory()
-    {
-        return activeInventory;
-    }
-
-    public int getItem(int slot)
-    {
-        return activeInventory.getItem(slot);
-    }
-
-    public GameObject getRealItem(int slot)
-    {
-        return itemsIds[activeInventory.getItem(slot)];
-    }
-
-    public void removeItemSlot(int slot)
-    {
-        activeInventory.removeItemSlot(slot);
     }
 }

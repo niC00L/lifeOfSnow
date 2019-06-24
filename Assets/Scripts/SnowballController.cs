@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class SnowballController : MonoBehaviour {
 	
-	public float sizeIncreaseSpeed = 0.1f;
+	public float sizeIncreaseSpeed = 1.0f;
 
 	public float size = 0;
 	public float startSize = 0.04f;
@@ -48,7 +48,8 @@ public class SnowballController : MonoBehaviour {
 		}
 
 		if(landed) {
-			Vector3 vel = GetComponent<Rigidbody>().velocity;
+            isOnGround = true;
+            Vector3 vel = GetComponent<Rigidbody>().velocity;
 			vel.y = 0;
 
 			if(vel.magnitude > 0.1) {
@@ -145,9 +146,7 @@ public class SnowballController : MonoBehaviour {
 	}
 
 	public void toSnowball() {
-        isOnGround = true;
-
-		size = startSize;
+        size = startSize;
 		
 		GetComponent<Rigidbody>().useGravity = true; //put gravity back for snowball
 

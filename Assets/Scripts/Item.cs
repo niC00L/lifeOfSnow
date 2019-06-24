@@ -1,49 +1,60 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Experimental.PlayerLoop;
 
-public class Item : MonoBehaviour
-{
+public class Item: MonoBehaviour {
+    public int id;
+    public string title;
+    public string description;
+    public Sprite icon1;
+    public Sprite icon2;
+    public GameObject instance;
+    public PutOnMe putOnMe;
 
-    public int itemID = 0;
-    public float pickupDistance = 5.0f;
-
+    public float pickupDistance = 50.0f;
     private Spawn spawn;
+
+
+    public Item(int id, string title, string description)//, GameObject instance)
+    {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.icon1 = Resources.Load<Sprite>("Sprites/Items/" + title);
+        this.icon2 = Resources.Load<Sprite>("Sprites/SelectedItems/" + title);
+        //this.instance = GameObject.Find(title);
+    }
+
+    public Item(Item item)
+    {
+        this.id = item.id;
+        this.title = item.title;
+        this.description = item.description;
+        this.icon1 = Resources.Load<Sprite>("Sprites/Items/" + title);
+        this.icon2 = Resources.Load<Sprite>("Sprites/SelectedItems/" + title);
+        //this.instance = GameObject.Find(title);
+    }
+
 
     void Start()
     {
         spawn = GameObject.Find("Spawn").GetComponent<Spawn>();
+        instance = GameObject.Find(title);
+        putOnMe = GameObject.FindObjectOfType<PutOnMe>();
+
+
     }
-
-    void OnMouseDown()
+    void Update()
     {
-
-        if (itemID <= 0)
+        Vector3 snowballPosition = spawn.latestSnowball.transform.position;  
+        if ((snowballPosition - instance.transform.position).magnitude < pickupDistance + spawn.latestSnowball.GetComponent<SnowballController>().size/2)
         {
-            return;
-        }
+            Inventory inv = GameObject.Find("Player").GetComponent<Inventory>();
 
-        Vector3 snowballPosition = spawn.latestSnowball.transform.position;
-
-        if ((snowballPosition - transform.position).magnitude < pickupDistance)
-        {
-
-            SnowballInventory inv = spawn.latestSnowball.GetComponent<SnowballInventory>();
-
-            if (inv.canAddItem(itemID))
-            {
-
-                inv.addItem(itemID);
-
-                Destroy(this.gameObject);
-
-            }
-            else
-            {
-                //TODO
-            }
-        }
-        else
-        {
-            //TODO
+            inv.GiveItem(this);
+            instance.SetActive(false);
+            //Destroy(v);
         }
     }
 }

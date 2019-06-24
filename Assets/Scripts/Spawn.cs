@@ -8,11 +8,9 @@ public class Spawn : MonoBehaviour
     public GameObject snowball;
     public GameObject latestSnowball;
     public float snowballSpawnSize = 0.0f;
-    private Inventory inventory;
     
     void Awake()
     {
-        inventory = FindObjectOfType<Inventory>();
     }
 
     void Start()
@@ -32,7 +30,7 @@ public class Spawn : MonoBehaviour
     {
 
         latestSnowball = (GameObject)Instantiate(this.snowball);
-        latestSnowball.transform.position = new Vector3(0, 50, 0);
+        latestSnowball.transform.position = new Vector3(0, 60, 0);
 
         SnowballController snowballController = latestSnowball.GetComponent<SnowballController>();
         if(snowballSpawnSize > 0) { 
@@ -45,11 +43,5 @@ public class Spawn : MonoBehaviour
             followSnowball.player = latestSnowball.transform;
         }
 
-        foreach (DrawTracks snowSurface in GameObject.FindObjectsOfType<DrawTracks>())
-        {
-            snowSurface._snowball = latestSnowball.transform;
-        }
-
-        inventory.updateInventory(latestSnowball.GetComponent<SnowballInventory>());
     }
 }

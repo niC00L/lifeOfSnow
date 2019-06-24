@@ -10,6 +10,7 @@ public class Item: MonoBehaviour {
     public Sprite icon1;
     public Sprite icon2;
     public GameObject instance;
+    public PutOnMe putOnMe;
 
     public float pickupDistance = 50.0f;
     private Spawn spawn;
@@ -40,13 +41,14 @@ public class Item: MonoBehaviour {
     {
         spawn = GameObject.Find("Spawn").GetComponent<Spawn>();
         instance = GameObject.Find(title);
+        putOnMe = GameObject.FindObjectOfType<PutOnMe>();
+
 
     }
     void Update()
     {
-        Vector3 snowballPosition = spawn.latestSnowball.transform.position;
-        
-        if ((snowballPosition - instance.transform.position).magnitude < pickupDistance)
+        Vector3 snowballPosition = spawn.latestSnowball.transform.position;  
+        if ((snowballPosition - instance.transform.position).magnitude < pickupDistance + spawn.latestSnowball.GetComponent<SnowballController>().size/2)
         {
             Inventory inv = GameObject.Find("Player").GetComponent<Inventory>();
 

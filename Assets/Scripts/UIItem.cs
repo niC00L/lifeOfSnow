@@ -10,13 +10,13 @@ public class UIItem : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, 
     public Image spriteImage;
     private UIItem selectedItem;
     private Tooltip tooltip;
-    private PutOnMe putOnMe;
+    //private PutOnMe putOnMe;
     public bool selected = false;
 
     
     void Awake()
     {
-        putOnMe = GameObject.FindObjectOfType<PutOnMe>();
+        //putOnMe = GameObject.FindObjectOfType<PutOnMe>();
         tooltip = GameObject.Find("Tooltip").GetComponent<Tooltip>();
         spriteImage = GetComponent<Image>();
         UpdateItem(null);
@@ -46,7 +46,7 @@ public class UIItem : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, 
             item.pickupDistance = float.MinValue;
             //this.item.instance.SetActive(true);
             this.selected = true;
-            putOnMe.putOnMe(item.instance);
+            item.putOnMe.putOnMe(item.instance);
 }
         else
         {

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using Wacki.IndentSurface;
 
 public class Spawn : MonoBehaviour
 {

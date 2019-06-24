@@ -13,7 +13,7 @@ public class SnowballMover : MonoBehaviour
     public float moveSpeed = 2.0f;
     public float moveSpeedAir = 1.0f;
     public float jumpSpeed = 2.0f;
-    public float jumpRepeatTime = 0.4f;
+    public float jumpRepeatTime = 10000.4f;
     public float cameraMoveSpeed = 200.0f;
 
     private float lastJumpTime = -1.0f;

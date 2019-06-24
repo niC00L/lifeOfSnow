@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class SnowballController : MonoBehaviour {
 	
-	public float sizeIncreaseSpeed = 0.1f;
+	public float sizeIncreaseSpeed = 1.0f;
 
 	public float size = 0;
 	public float startSize = 0.04f;

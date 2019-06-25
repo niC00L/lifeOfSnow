@@ -62,7 +62,7 @@ public class SnowballController : MonoBehaviour {
 			if(GetComponent<Rigidbody>().velocity.y == 0)
 				GetComponent<Rigidbody>().AddForce(new Vector3(0, -snowflakeFallSpeed, 0));
 		}
-    }
+	}
 
 	void FixedUpdate() {
 		

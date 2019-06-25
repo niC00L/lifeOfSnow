@@ -62,8 +62,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\IndentSurface\Scripts\IndentActor.cs" />
-    <Compile Include="Assets\IndentSurface\Scripts\IndentDraw.cs" />
     <Compile Include="Assets\Scripts\DamageSnow.cs" />
     <Compile Include="Assets\Scripts\FollowSimple.cs" />
     <Compile Include="Assets\Scripts\GameLoader.cs" />
@@ -86,16 +84,6 @@
     <Compile Include="Assets\SimpleMobileJoysticks\JoystickScripts\Sample.cs" />
     <Compile Include="Assets\SimpleMobileJoysticks\JoystickScripts\TouchPad.cs" />
     <None Include="Assets\Shaders\FlatShader.shader" />
-    <None Include="Assets\Shaders\DrawTracks.shader" />
-    <None Include="Assets\IndentSurface\Shaders\IndentStamp_CUSTOM.shader" />
-    <None Include="Assets\IndentSurface\Shaders\DentableSurface.shader" />
-    <None Include="Assets\IndentSurface\Shaders\IndentStamp_Default.shader" />
-    <None Include="Assets\IndentSurface\Shaders\IndentStampInc.cginc" />
-    <None Include="Assets\IndentSurface\Shaders\IndentStamp_MUL.shader" />
-    <None Include="Assets\IndentSurface\Shaders\IndentStamp_ADD.shader" />
-    <None Include="Assets\IndentSurface\Shaders\IndentStamp_MIN.shader" />
-    <None Include="Assets\Shaders\Snowtracks.shader" />
-    <None Include="Assets\Shaders\Snowfall.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/GIT/lifeofsnow/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class SnowballController : MonoBehaviour {
 	
@@ -94,7 +95,12 @@ public class SnowballController : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision) {
 
-		checkFallOnGround(collision);
+        if (collision.gameObject.name.Contains("snowball") && transform.childCount == 4)
+        {
+            Spawn.Instance.Win();
+        }
+
+        checkFallOnGround(collision);
 
 	}
 

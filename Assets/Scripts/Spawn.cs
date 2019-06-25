@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Spawn : MonoBehaviour
 {
@@ -7,9 +8,26 @@ public class Spawn : MonoBehaviour
     public GameObject snowball;
     public GameObject latestSnowball;
     public float snowballSpawnSize = 0.0f;
-    
+    private static Spawn instance;
+    public Text youWinText;
+
+
+    public static Spawn Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new Spawn();
+            }
+
+            return instance;
+        }
+    }
+
     void Awake()
     {
+        
     }
 
     void Start()
@@ -43,4 +61,13 @@ public class Spawn : MonoBehaviour
         }
 
     }
+
+    public void Win()
+    {
+        Time.timeScale = 0.25f;
+
+        youWinText = GameObject.Find("You Win Text").GetComponent<Text>();
+        youWinText.text = "You have succesfully built a snowman!  Congratulations!";
+    }
+
 }

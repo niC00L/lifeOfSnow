@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &158306
+--- !u!1 &1976674750414363613
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 411700}
-  - component: {fileID: 11499844}
-  - component: {fileID: 11482522}
+  - component: {fileID: 1976674750414363615}
+  - component: {fileID: 1976674750414363614}
+  - component: {fileID: 1976674750127322889}
   m_Layer: 0
   m_Name: Spawn
   m_TagString: Untagged
@@ -18,13 +18,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &411700
+--- !u!4 &1976674750414363615
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 158306}
+  m_GameObject: {fileID: 1976674750414363613}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 128, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,13 +32,13 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &11499844
+--- !u!114 &1976674750414363614
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 158306}
+  m_GameObject: {fileID: 1976674750414363613}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d71345575efe824f8832bf5e1790149, type: 3}
@@ -47,20 +47,21 @@ MonoBehaviour:
   snowball: {fileID: 119810, guid: 72d71321a6e5a2f4c803b7d8659fbcff, type: 3}
   latestSnowball: {fileID: 0}
   snowballSpawnSize: 0
---- !u!114 &11482522
+  youWinText: {fileID: 0}
+--- !u!114 &1976674750127322889
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 158306}
+  m_GameObject: {fileID: 1976674750414363613}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 10438ab748e5b1f46b8b41921c70608a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 24
+  moveSpeed: 40
   moveSpeedAir: 14
-  jumpSpeed: 20
-  jumpRepeatTime: 0.4
+  jumpSpeed: 27
+  jumpRepeatTime: 1.2
   cameraMoveSpeed: -200

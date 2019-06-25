@@ -42,5 +42,10 @@ public class Spawn : MonoBehaviour
             followSnowball.player = latestSnowball.transform;
         }
 
+        foreach (DrawTracks snowSurface in GameObject.FindObjectsOfType<DrawTracks>())
+        {
+            snowSurface._snowball = latestSnowball.transform;
+        }
+
     }
 }

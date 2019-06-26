@@ -82,7 +82,7 @@ MonoBehaviour:
   snowflakeFallSpeed: 80
   moveSpeed: 1
   jumpAllowDistance: 0.1
-  snowTerrainDecreasment: 0.0001
+  snowTerrainDecreasment: 0.5
   connectRepeatTime: 1
   isOnGround: 0
 --- !u!1 &155776

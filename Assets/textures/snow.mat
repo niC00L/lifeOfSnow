@@ -124,7 +124,7 @@ Material:
     - _EnableExternalAlpha: 0
     - _FlipbookMode: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.207
+    - _Glossiness: 0.17
     - _GlossyReflections: 1
     - _LightingEnabled: 0
     - _Metallic: 0
@@ -143,7 +143,7 @@ Material:
     - _StencilOp: 0
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
-    - _Tess: 10
+    - _Tess: 0.1
     - _UVSec: 0
     - _UseUIAlphaClip: 0
     - _ZWrite: 1

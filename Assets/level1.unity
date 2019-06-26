@@ -4916,6 +4916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _snowball: {fileID: 0}
   _drawShader: {fileID: 4800000, guid: fd774a037e515694faa988c9054eeb89, type: 3}
+  _spawn: {fileID: 399564327}
   _brushSize: 1.75
   _brushStrength: 1
 --- !u!114 &395482863
@@ -5088,6 +5089,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 463928, guid: 0d5a44b0c978da24a9ac325fd649c3b7,
     type: 3}
   m_PrefabInstance: {fileID: 398066906}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &399564327 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 411700, guid: 21230ba4b44afcf498d025c049855c87,
+    type: 3}
+  m_PrefabInstance: {fileID: 970052726}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &409601795
 PrefabInstance:

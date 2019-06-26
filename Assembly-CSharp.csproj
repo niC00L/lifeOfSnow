@@ -62,6 +62,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\3rdPerson+Fly\Scripts\LevelScripts\ThirdPersonOrbitCamBasic.cs" />
+    <Compile Include="Assets\3rdPerson+Fly\Scripts\PlayerScripts\BasicBehaviour.cs" />
+    <Compile Include="Assets\3rdPerson+Fly\Scripts\PlayerScripts\MoveBehaviour.cs" />
     <Compile Include="Assets\Scripts\DamageSnow.cs" />
     <Compile Include="Assets\Scripts\FollowSimple.cs" />
     <Compile Include="Assets\Scripts\GameLoader.cs" />

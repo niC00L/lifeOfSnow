@@ -30,7 +30,7 @@ public class DrawTracks : MonoBehaviour
 
     void FixedUpdate()
     {
-        var size  = _brushSize * (_snowball.GetComponent<SnowballController>().size / 2);
+        var size  = _brushSize * (_snowball.GetComponent<SnowballController>().size / 1.8f);
         float raycastDistance = _snowball.GetComponent<SnowballController>().size / 2 + 0.2f;
         if (Physics.Raycast(_snowball.position, -Vector3.up, out _groundHit, raycastDistance, _layerMask))
         {

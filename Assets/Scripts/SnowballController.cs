@@ -11,10 +11,7 @@ public class SnowballController : MonoBehaviour {
     public float moveSpeed = 1.0f;
 	public float jumpAllowDistance = 0.4f;
 
-	private SnowTerrain[] snowTerrains;
-	public float snowTerrainDecreasment = 0.5f;
-
-	public float connectRepeatTime = 1.0f;
+    public float connectRepeatTime = 1.0f;
     public bool isOnGround = false;
 
 	private bool landed;
@@ -26,11 +23,8 @@ public class SnowballController : MonoBehaviour {
 	void Start () {
 		updateSize();
 
-		snowTerrains = GameObject.FindObjectsOfType<SnowTerrain>();
-
 		GetComponent<Rigidbody>().useGravity = false; //because snowflake have own gravity skills, she doesnt need this
         //isOnGround = false;
-
     }
 
 	void Update () {

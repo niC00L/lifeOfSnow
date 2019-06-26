@@ -76,13 +76,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 121aa1f12621ea144a38b736bd43d69c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sizeIncreaseSpeed: 2
+  sizeIncreaseSpeed: 1
   size: 0
-  startSize: 0.2
-  snowflakeFallSpeed: 80
-  moveSpeed: 1
+  startSize: 0.18
+  snowflakeFallSpeed: 50
+  moveSpeed: 2
   jumpAllowDistance: 0.1
-  snowTerrainDecreasment: 0.5
   connectRepeatTime: 1
   isOnGround: 0
 --- !u!1 &155776

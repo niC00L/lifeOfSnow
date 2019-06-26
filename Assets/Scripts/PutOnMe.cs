@@ -10,6 +10,13 @@ public class PutOnMe : MonoBehaviour
     private SnowballController puttingOn;
     private Transform puttingObject;
 
+    void Start()
+    {
+       
+            mainCamera = GameObject.Find("Main Camera").transform;
+            spawn = FindObjectOfType<Spawn>();
+        
+    }
     void Awake()
     {
         mainCamera = GameObject.Find("Main Camera").transform;

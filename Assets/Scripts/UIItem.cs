@@ -46,8 +46,16 @@ public class UIItem : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, 
             item.pickupDistance = float.MinValue;
             //this.item.instance.SetActive(true);
             this.selected = true;
-            item.putOnMe.putOnMe(item.instance);
-}
+            if (this.item.putOnMe != null)
+            {
+                item.putOnMe.putOnMe(item.instance);
+            }
+            else
+            {
+                this.item.putOnMe = GameObject.FindObjectOfType<PutOnMe>();
+                item.putOnMe.putOnMe(item.instance);
+            }
+        }
         else
         {
             this.selected = false;

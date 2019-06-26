@@ -9210,8 +9210,8 @@ MonoBehaviour:
   id: 4
   title: Middle button
   description: Middle button
-  icon1: {fileID: 21300000, guid: bb739dfb05b3e224da66edb9f050fb07, type: 3}
-  icon2: {fileID: 21300000, guid: bb739dfb05b3e224da66edb9f050fb07, type: 3}
+  icon1: {fileID: 21300000, guid: 658ac0ec57544ff40b24d8844270f976, type: 3}
+  icon2: {fileID: 21300000, guid: 23514bb53bbf59d45b64db92d1589cd0, type: 3}
   instance: {fileID: 0}
   putOnMe: {fileID: 0}
   pickupDistance: 1
@@ -26735,8 +26735,8 @@ MonoBehaviour:
   id: 3
   title: Bottom button
   description: Bottom button
-  icon1: {fileID: 21300000, guid: 96b8e9f142483f04d8e1476016231efd, type: 3}
-  icon2: {fileID: 21300000, guid: 96b8e9f142483f04d8e1476016231efd, type: 3}
+  icon1: {fileID: 21300000, guid: 658ac0ec57544ff40b24d8844270f976, type: 3}
+  icon2: {fileID: 21300000, guid: 23514bb53bbf59d45b64db92d1589cd0, type: 3}
   instance: {fileID: 0}
   putOnMe: {fileID: 0}
   pickupDistance: 1
@@ -26926,11 +26926,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d950d1b960cfbf54ba4bb33b98704149, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 2
+  id: 3
   title: Hat
-  description: It's a hat
-  icon1: {fileID: 21300000, guid: 96b8e9f142483f04d8e1476016231efd, type: 3}
-  icon2: {fileID: 21300000, guid: 96b8e9f142483f04d8e1476016231efd, type: 3}
+  description: Prettie than a pot
+  icon1: {fileID: 21300000, guid: 9f4edb2bd6108a74a86e27e24befe902, type: 3}
+  icon2: {fileID: 21300000, guid: d5742296230040e45abecc89ad1814c4, type: 3}
   instance: {fileID: 0}
   putOnMe: {fileID: 0}
   pickupDistance: 1

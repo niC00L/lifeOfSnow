@@ -30,10 +30,11 @@ public class DrawTracks : MonoBehaviour
 
     void FixedUpdate()
     {
-        var size  = _brushSize * _snowball.GetComponent<SnowballController>().size;
+        var size  = _brushSize * (_snowball.GetComponent<SnowballController>().size / 2);
         float raycastDistance = _snowball.GetComponent<SnowballController>().size / 2 + 0.2f;
         if (Physics.Raycast(_snowball.position, -Vector3.up, out _groundHit, raycastDistance, _layerMask))
         {
+            increaseSnowballSizeIfNeccessary();
             _drawMaterial.SetVector("_Coordinate", new Vector4(_groundHit.textureCoord.x, _groundHit.textureCoord.y, 0, 0));
             _drawMaterial.SetFloat("_Strength", _brushStrength);
             _drawMaterial.SetFloat("_Size", size);
@@ -42,19 +43,23 @@ public class DrawTracks : MonoBehaviour
             Graphics.Blit(temp, _splatmap, _drawMaterial);
             RenderTexture.ReleaseTemporary(temp);
 
-            //RenderTexture temppix = RenderTexture.GetTemporary(1, 1, 0, RenderTextureFormat.ARGBFloat);
-            //Graphics.Blit(_splatmap, temppix, new Vector2(1, 1), _groundHit.textureCoord);
-            //Texture2D fn = new Texture2D(1,1);
-            //RenderTexture.active = temppix;
-            //fn.ReadPixels(new Rect(0, 0, 1, 1), 0, 0);
-            //fn.Apply();
-            //RenderTexture.active = null;
+            
+        }
+    }
 
-            //Color pi = fn.GetPixel(0, 0);
-            //if (pi == Color.black)
-            //{
-                _spawn.GetComponent<SnowballMover>()._increaseBallSize();
-            //}
+    private void increaseSnowballSizeIfNeccessary()
+    {
+        var ff = _groundHit.textureCoord * 1024;
+        Texture2D fn = new Texture2D(1, 1);
+        RenderTexture.active = _splatmap;
+        fn.ReadPixels(new Rect(ff.x, 1024 - ff.y, 1, 1), 0, 0);
+        fn.Apply();
+        RenderTexture.active = null;
+
+        Color pi = fn.GetPixel(0, 0);
+        if (pi != Color.red)
+        {
+            _spawn.GetComponent<SnowballMover>()._increaseBallSize();
         }
     }
 }

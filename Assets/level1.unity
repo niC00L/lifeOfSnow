@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.43756467, g: 0.48540765, b: 0.5656829, a: 1}
+  m_IndirectSpecularColor: {r: 0.4375652, g: 0.4854083, b: 0.5656842, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &4
 LightmapSettings:
@@ -9096,8 +9096,9 @@ GameObject:
   - component: {fileID: 749537017}
   - component: {fileID: 749537019}
   - component: {fileID: 749537018}
+  - component: {fileID: 749537020}
   m_Layer: 0
-  m_Name: button.000 (2)
+  m_Name: Middle button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9163,6 +9164,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749537016}
   m_Mesh: {fileID: -7751598059656695141, guid: 4d99a99da3bd21e47809566d1bcd1767, type: 3}
+--- !u!114 &749537020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749537016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d950d1b960cfbf54ba4bb33b98704149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 4
+  title: Middle button
+  description: Middle button
+  icon1: {fileID: 21300000, guid: bb739dfb05b3e224da66edb9f050fb07, type: 3}
+  icon2: {fileID: 21300000, guid: bb739dfb05b3e224da66edb9f050fb07, type: 3}
+  instance: {fileID: 0}
+  putOnMe: {fileID: 0}
+  pickupDistance: 1
 --- !u!1001 &778645182
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26287,13 +26308,34 @@ GameObject:
   - component: {fileID: 1897052639590948737}
   - component: {fileID: 2687708228556465108}
   - component: {fileID: 3884133012716517480}
+  - component: {fileID: 1209419091454628509}
   m_Layer: 0
-  m_Name: button.000
+  m_Name: Bottom button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1209419091454628509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209419091454628508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d950d1b960cfbf54ba4bb33b98704149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 3
+  title: Bottom button
+  description: Bottom button
+  icon1: {fileID: 21300000, guid: 96b8e9f142483f04d8e1476016231efd, type: 3}
+  icon2: {fileID: 21300000, guid: 96b8e9f142483f04d8e1476016231efd, type: 3}
+  instance: {fileID: 0}
+  putOnMe: {fileID: 0}
+  pickupDistance: 1
 --- !u!4 &1897052639590948737
 Transform:
   m_ObjectHideFlags: 0
@@ -26302,7 +26344,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1209419091454628508}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.5, y: 0.382165, z: -15.820701}
+  m_LocalPosition: {x: -17.5, y: 0.382165, z: -15.828}
   m_LocalScale: {x: -1.9111, y: -1.9111, z: -1.9111}
   m_Children: []
   m_Father: {fileID: 1603680337}
@@ -26460,6 +26502,7 @@ GameObject:
   - component: {fileID: 569884668943145403}
   - component: {fileID: 438267444047235548}
   - component: {fileID: 436824187663360667}
+  - component: {fileID: 8977616789148991373}
   m_Layer: 0
   m_Name: Hat
   m_TagString: Untagged
@@ -26467,6 +26510,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8977616789148991373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8977616789148991372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d950d1b960cfbf54ba4bb33b98704149, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 2
+  title: Hat
+  description: It's a hat
+  icon1: {fileID: 21300000, guid: 96b8e9f142483f04d8e1476016231efd, type: 3}
+  icon2: {fileID: 21300000, guid: 96b8e9f142483f04d8e1476016231efd, type: 3}
+  instance: {fileID: 0}
+  putOnMe: {fileID: 0}
+  pickupDistance: 1
 --- !u!23 &9148382913555192972
 MeshRenderer:
   m_ObjectHideFlags: 0

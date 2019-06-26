@@ -41,25 +41,54 @@ public class DrawTracks : MonoBehaviour
             RenderTexture temp = RenderTexture.GetTemporary(_splatmap.width, _splatmap.height, 0, RenderTextureFormat.ARGBFloat);
             Graphics.Blit(_splatmap, temp);
             Graphics.Blit(temp, _splatmap, _drawMaterial);
-            RenderTexture.ReleaseTemporary(temp);
-
-            
+            RenderTexture.ReleaseTemporary(temp);            
         }
     }
 
     private void increaseSnowballSizeIfNeccessary()
     {
+        var size = Mathf.Max(1, _brushSize * (_snowball.GetComponent<SnowballController>().size / 1.8f) * 5);
+        var halfsize = size / 2;
         var ff = _groundHit.textureCoord * 1024;
-        Texture2D fn = new Texture2D(1, 1);
+        Texture2D fn = new Texture2D((int)size, (int)size);
         RenderTexture.active = _splatmap;
-        fn.ReadPixels(new Rect(ff.x, 1024 - ff.y, 1, 1), 0, 0);
+        fn.ReadPixels(new Rect(ff.x - (size/2), 1024 - (ff.y - (size / 2)), fn.width, fn.height), 0, 0);
         fn.Apply();
         RenderTexture.active = null;
 
-        Color pi = fn.GetPixel(0, 0);
-        if (pi != Color.red)
+        Color pi = AverageColorFromTexture(fn);
+        if (pi.r < 0.3)
         {
             _spawn.GetComponent<SnowballMover>()._increaseBallSize();
+        } 
+    }
+
+    private static Color AverageColorFromTexture(Texture2D tex)
+    {
+
+        Color[] texColors = tex.GetPixels();
+
+        int total = texColors.Length;
+
+        float r = 0;
+        float g = 0;
+        float b = 0;
+        float a = 0;
+
+        for (int i = 0; i < total; i++)
+        {
+
+            r += texColors[i].r;
+
+            g += texColors[i].g;
+
+            b += texColors[i].b;
+
+            a += texColors[i].a;
+
         }
+
+        return new Color(r / total, g / total, b / total, a / total);
+
     }
 }

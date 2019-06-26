@@ -11,10 +11,7 @@ public class SnowballController : MonoBehaviour {
     public float moveSpeed = 1.0f;
 	public float jumpAllowDistance = 0.4f;
 
-	private SnowTerrain[] snowTerrains;
-	public float snowTerrainDecreasment = 0.5f;
-
-	public float connectRepeatTime = 1.0f;
+    public float connectRepeatTime = 1.0f;
     public bool isOnGround = false;
 
 	private bool landed;
@@ -26,11 +23,8 @@ public class SnowballController : MonoBehaviour {
 	void Start () {
 		updateSize();
 
-		snowTerrains = GameObject.FindObjectsOfType<SnowTerrain>();
-
 		GetComponent<Rigidbody>().useGravity = false; //because snowflake have own gravity skills, she doesnt need this
         //isOnGround = false;
-
     }
 
 	void Update () {
@@ -65,31 +59,7 @@ public class SnowballController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		
-		if(size > 0) {
-
-			List<SnowTerrain> intersectingTerrains = new List<SnowTerrain>();
-
-			foreach(SnowTerrain snowTerrain in snowTerrains) {
-				if(snowTerrain.snowballIntersects(transform.position, size)) {
-					intersectingTerrains.Add(snowTerrain);
-				}
-			}
-
-			if(intersectingTerrains.Count > 0) {
-
-				float value = 0;
-
-				float currentTerrainDecreasment = snowTerrainDecreasment * GetComponent<Rigidbody>().velocity.magnitude;
-
-				foreach(SnowTerrain snowTerrain in intersectingTerrains) {
-					value += snowTerrain.decreaseSnow(transform.position, size, currentTerrainDecreasment);
-				}
-				
-				size += value / Mathf.Pow(1+size, 2.8f) * sizeIncreaseSpeed;
-				updateSize();
-			}
-		}
+	
 	}
 
 	void OnCollisionEnter(Collision collision) {
@@ -162,7 +132,7 @@ public class SnowballController : MonoBehaviour {
 	}
 
 	public void updateSize() {
-		this.transform.GetChild(1).localScale = new Vector3(size, size, size);
+        this.transform.GetChild(1).localScale = new Vector3(size, size, size);
 
 		float colSize = size / 2;
 

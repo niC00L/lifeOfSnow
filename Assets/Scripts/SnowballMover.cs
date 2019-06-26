@@ -46,14 +46,14 @@ public class SnowballMover : MonoBehaviour
         SnowballController snowball = getSnowball();
 
         if (snowball.size > 0)
-            forward = mainCamera.transform.TransformDirection(Vector3.forward); //snowball
+            forward = mainCamera.transform.TransformDirection(Vector3.forward); //snowball        
         else
             forward = mainCamera.transform.TransformDirection(Vector3.up); //snowflake
 
         forward.y = 0;
         forward = forward.normalized;
 
-        Vector3 right = new Vector3(forward.z, 0, -forward.x);
+        Vector3 right = new Vector3(forward.z, 0, -forward.x).normalized;       
 
         float v = getVerticalInput();
         float h = getHorizontalInput();
@@ -65,11 +65,11 @@ public class SnowballMover : MonoBehaviour
 
         if (grounded)
         {
-            targetDirection = targetDirection * moveSpeed;
+            targetDirection = targetDirection.normalized * moveSpeed;
         }
         else
         {
-            targetDirection = targetDirection * moveSpeedAir;
+            targetDirection = targetDirection.normalized * moveSpeedAir;
         }
 
         targetDirection *= Time.deltaTime;
@@ -88,7 +88,6 @@ public class SnowballMover : MonoBehaviour
             }
         }
 
-        //rotateCamera();
 
         if (Input.GetKey(KeyCode.C) || manualInputConnect)
         {
@@ -97,10 +96,7 @@ public class SnowballMover : MonoBehaviour
 
         if (Input.GetKey(KeyCode.R) || manualInputRespawn)
         {
-            //            GameObject cube = GameObject.FindWithTag("InventoryPanel");
             inventory.inventoryUI.RemoveSelectedItems();
-            //var x = GameObject.Find("InventoryPanel");
-              // x.GetComponent<UIInventory>().RemoveSelectedItems();
             spawn.trySpawnSnowball();
         }
     }
@@ -134,29 +130,10 @@ public class SnowballMover : MonoBehaviour
         return spawn.latestSnowball.GetComponent<SnowballController>();
     }
 
-    private void rotateCamera()
-    {
-        if(controllerCamera.TouchPadInput.magnitude > 0) {
-            
-            float dx = lastCameraControllerInput.x - controllerCamera.TouchPadInput.x;
-            float dy = lastCameraControllerInput.y - controllerCamera.TouchPadInput.y;
-            
-            dx *= 100; dy *= 100;
-
-            Vector3 centerPoint = mainCamera.ScreenToWorldPoint(screenCenter);
-            Vector3 movePoint = mainCamera.ScreenToWorldPoint(screenCenter + new Vector3(dx, dy, 0));
-            Vector3 moveVector = movePoint - centerPoint;
-
-            mainCamera.transform.position += moveVector * cameraMoveSpeed;
-        }
-
-        lastCameraControllerInput = controllerCamera.TouchPadInput;
-    }
-
     public void _increaseBallSize()
     {
         SnowballController snowball = getSnowball();
-        snowball.size *= 2;
+        snowball.size += snowball.sizeIncreaseSpeed /1500;
         snowball.updateSize();
     }
 

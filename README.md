@@ -10,7 +10,7 @@ Controls:
 * R - respawn
 * I - inventory
 
-[screenshot1]: https://github.com/niC00L/lifeOfSnow/blob/master/screenshots/snow6.png?raw=true "Screenshot: Falling down as a snowflake"
-[screenshot2]: https://github.com/niC00L/lifeOfSnow/blob/master/screenshots/snow5.png?raw=true "Screenshot: Becoming a snowball"
-[screenshot3]: https://github.com/niC00L/lifeOfSnow/blob/master/screenshots/snow4.png?raw=true "Screenshot: Moving around and getting bigger"
-[screenshot4]: https://github.com/niC00L/lifeOfSnow/blob/master/screenshots/snow3.png?raw=true "Screenshot: Creating a disabled snowman"
+![screenshot1](https://github.com/niC00L/lifeOfSnow/blob/master/screenshots/snow6.png?raw=true)
+![screenshot2](https://github.com/niC00L/lifeOfSnow/blob/master/screenshots/snow5.png?raw=true)
+![screenshot3](https://github.com/niC00L/lifeOfSnow/blob/master/screenshots/snow4.png?raw=true)
+![screenshot4](https://github.com/niC00L/lifeOfSnow/blob/master/screenshots/snow3.png?raw=true)
